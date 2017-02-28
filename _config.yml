@@ -24,16 +24,6 @@ url: "https://jacobevanshreve.me" # the base hostname & protocol for your site, 
 
 # Build settings
 markdown: kramdown
-gems:
-  - jekyll-assets
 exclude:
   - Gemfile
   - Gemfile.lock
-
-assets:
-  prefix: "/assets"
-  assets:
-    - main.css
-
-  sources:
-    - _assets/main.sass
