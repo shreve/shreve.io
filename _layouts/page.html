@@ -9,14 +9,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jacob Evan Shreve | {{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="https://jacobevanshreve.me{{ page.permalink }}">
   </head>
   <body>
-    <a href="#dark-mode" id="dark-mode-link" title="Dark Mode">🌝</a>
-
     <div class="content">
       {{ content }}
     </div>
+
+    <script type="text/javascript">
+     var darkLink = document.createElement('a');
+     darkLink.id = "dark-mode-link"
+     darkLink.title = "Dark Mode";
+     darkLink.text = "🌝";
+     darkLink.addEventListener('click', function(event) {
+       event.preventDefault();
+       document.body.classList.toggle('dark-mode');
+       if (document.body.classList.contains('dark-mode')) {
+         try { localStorage.setItem('dark-mode', true); } catch (e) { }
+       } else {
+         try { localStorage.setItem('dark-mode', false); } catch (e) { }
+       }
+     });
+     document.body.insertBefore(darkLink, document.body.children[0]);
+
+     try {
+       if (localStorage.getItem('dark-mode') === "true") {
+         document.body.classList.add('dark-mode');
+       }
+     } catch (e) { }
+    </script>
   </body>
 </html>
