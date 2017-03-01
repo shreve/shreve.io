@@ -6,10 +6,17 @@ show_drafts: true
 collections:
   recipes:
     output: true
-    permalink: /recipes/:title
+    permalink: /:collection/:title
 
 defaults:
-  - scope:
-      path: ""
+  -
+    scope:
+      path: ''
+    values:
+      layout: page
+
+  -
+    scope:
+      type: 'recipes'
     values:
       layout: recipe

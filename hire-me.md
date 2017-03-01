@@ -1,5 +1,4 @@
 ---
-layout: page
 permalink: /hire-me
 title: Hire Me
 description: I'm not always available for work, but here are some things you should know about hiring me.

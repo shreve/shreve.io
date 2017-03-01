@@ -2,6 +2,8 @@
 title: Cheddar Cheese Chicken
 ---
 
+## Ingredients
+
 * 6 boneless/skinless chicken breasts
 * 1 can cream of chicken soup (undeluted)
 * 1/2 cup mayo
@@ -9,7 +11,8 @@ title: Cheddar Cheese Chicken
 * 2 cups dry suffing mix
 * Lowrey's seasoning salt
 
----
+
+## Instructions
 
 1. Place chicken in shallow, buttered dish.
 2. Sprinkle with lowreys seasoning salt.
