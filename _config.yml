@@ -1,0 +1,15 @@
+exclude: [Gemfile, Gemfile.lock, CNAME, readme.md]
+time_zone: America/Detroit
+encoding: utf-8
+show_drafts: true
+
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:title
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: recipe
