@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="canonical" href="https://jacobevanshreve.me{{ page.url }}" />
   </head>
-  <body class="{{ page.layout }}">
+  <body class="{{ page.layout }} dark-mode">
     <div class="wrapper">
       <div class="content">
         {{ content }}
@@ -37,8 +37,8 @@
      document.body.insertBefore(darkLink, document.body.children[0]);
 
      try {
-       if (localStorage.getItem('dark-mode') === "true") {
-         document.body.classList.add('dark-mode');
+       if (localStorage.getItem('dark-mode') === "false") {
+         document.body.classList.remove('dark-mode');
        }
      } catch (e) { }
     </script>
