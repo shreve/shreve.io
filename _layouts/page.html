@@ -17,8 +17,15 @@
     <div class="wrapper">
       <div class="content">
         {{ content }}
+
+        <footer>
+          <span class="chunk">&copy; {{ site.time | date: '%Y' }} Jacob Evan Shreve</span>
+          <span class="spacer">//</span>
+          <span class="chunk">Made with &#x2764; in Michigan</span>
+        </footer>
       </div>
     </div>
+
 
     <script type="text/javascript">
      var darkLink = document.createElement('a');
