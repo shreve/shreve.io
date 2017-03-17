@@ -91,6 +91,15 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
     </ul>
   </section>
 
+  <section>
+    <h3>Blog Posts</h3>
+    <ul>
+      {% for post in site.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
   <blockquote>
     <p>This song goes out to anyone out there that believes that maybe, just maybe, we were all born with the moral obligation to leave this world a better place than the world that we’ve found.</p>
     <cite>Rise Against, <em>Prayer of the Refugee (Live)</em></cite>
