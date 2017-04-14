@@ -3,6 +3,7 @@ time_zone: America/Detroit
 encoding: utf-8
 show_drafts: true
 permalink: pretty
+repository: shreve/shreve.github.io
 
 collections:
   recipes:

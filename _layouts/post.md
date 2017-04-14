@@ -7,6 +7,8 @@ permalink: page.url
 <header>
 <h1>{{ page.title }}</h1>
 
+<div class="content-element">
+<time datetime="{{ page.date }}">
 {% assign day = page.date | date: "%-d"  %}
 {% case day %}
   {% when '1' or '21' or '31' %}{{ day }}st
@@ -15,14 +17,17 @@ permalink: page.url
   {% else %}{{ day }}th
 {% endcase %}
 {{ page.date | date: "of %B, %Y" }}
-&middot;
-
-Tagged:
+</time>
+<br>
+{% if page.tags != empty %}
 <ul class="tags">
 {% for tag in page.tags %}
 <li>{{ tag }}</li>
 {% endfor %}
 </ul>
+</span>
+{% endif %}
+</div>
 </header>
 
 

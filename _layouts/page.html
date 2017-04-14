@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script type="text/javascript">
-     if (window.location.host === "jacobevanshreve.me" && window.location.protocol != "https:") { window.location.protocol = "https"; }
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,12 +9,61 @@
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="canonical" href="https://jacobevanshreve.me{{ page.url }}" />
+    <script>
+     window.Typography = {
+       session_key: 'typekit_css_url',
+       init: function() {
+         if (this.__session() && sessionStorage.getItem(this.session_key)) {
+           return this.makeLink();
+         } else {
+           return this.makeScript();
+         }
+       },
+       makeLink: function() {
+         var link;
+         link = document.getElementById('typekit-styles');
+         if (link !== null && !link.href) {
+           link.href = sessionStorage.getItem('typekit_css_url');
+           return link.onerror = function() {
+             return Typography.makeScript();
+           };
+         }
+       },
+       makeScript: function() {
+         var script;
+         script = document.createElement('script');
+         script.src = 'https://use.typekit.net/uqq4alz.js';
+         script.onload = function() {
+           return Typekit.load({
+             active: function() {
+               return Typography.cacheUrl();
+             }
+           });
+         };
+         return document.head.appendChild(script);
+       },
+       cacheUrl: function() {
+         var sheet;
+         if (this.__session()) {
+           sheet = document.querySelector('link[href*="use.typekit.net"]');
+           if (sheet) {
+             return sessionStorage.setItem(this.session_key, sheet.href);
+           }
+         }
+       },
+       __session: function() {
+         return window.hasOwnProperty('sessionStorage');
+       }
+     };
+
+     Typography.init();
+    </script>
   </head>
   <body class="{{ page.layout }} dark-mode">
+    {% if page.url != '/' %}<a class="logo" href="/">JS</a>{% endif %}
     <div class="wrapper">
       <div class="content">
         {{ content }}
-
       </div>
       <footer>
         <span class="chunk">&copy; {{ site.time | date: '%Y' }} Jacob Evan Shreve</span>
@@ -57,5 +103,6 @@
      ga('create', 'UA-37971025-3', 'auto');
      ga('send', 'pageview');
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js"></script>
   </body>
 </html>

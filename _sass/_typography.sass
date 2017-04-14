@@ -1,0 +1,102 @@
+%tisa
+  font-family: "ff-tisa-web-pro"
+
+%futura
+  font-family: "futura-pt"
+
+.wf-loading
+  %tisa, %futura
+    color: transparent
+
+h1, h2, h3, h4, h5, h6
+  @extend %futura
+  font-weight: bold
+  margin-top: 1em
+  margin-bottom: 1em
+
+h1, h2
+  text-align: center
+
+h1
+  font-size: 2.5rem
+
+h2
+  font-size: 1.75rem
+
+h3
+  font-size: 1.25rem
+  text-transform: uppercase
+
+header *
+  @extend %futura
+  text-align: center
+
+p, li, a, cite, time
+  @extend %tisa
+  line-height: 1.5
+  font-size: 1.1rem
+  margin-bottom: 1.5em
+
+span
+  @extend %tisa
+  line-height: 1.5
+
+p, ol, ul, .content-element
+  width: 95%
+  margin: 0 auto 1.5em
+
+ol
+  list-style-type: decimal
+  padding-left: 0.5em
+
+  li
+    padding-left: 0.5em
+
+
+code, code *
+  font-family: Fira Mono, Monaco, monospace
+
+pre
+  margin-bottom: 1.5em
+  border: 1px solid
+
+blockquote
+  p
+    quotes: "“" "”" "‘" "’"
+
+    &::before, &::after
+      content: '“'
+      font-size: 2.5rem
+      display: inline
+
+    &::before
+      content: open-quote
+      position: absolute
+      left: -0.3em
+      top: -0.4em
+
+    &::after
+      content: close-quote
+      vertical-align: middle
+      line-height: 0
+
+.tags
+  display: inline-block
+  width: auto
+  margin: 0
+
+  li
+    margin-bottom: none
+    display: inline
+    margin: 0
+
+    &::after
+      content: ', '
+
+    &:last-child::after
+      content: ''
+
+.flex-title__elbow
+  @media only screen and (max-width: 500px)
+    display: block
+    margin: 0
