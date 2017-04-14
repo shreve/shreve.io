@@ -20,9 +20,9 @@ I knew this wasn't true because it worked before, but I didn't know what exactly
 
 Ultimately I found a [debian bug page](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=833508) that led to my result. The problem exists in an updated x/video package. What I needed was `xserver-xorg-video-intel`, but what I had was `xserver-xorg-core`.
 
-According to this bug report, someone was able to force rollback to `xserver-xorg-video-intel by creating the following file:
+According to this bug report, someone was able to force rollback to `xserver-xorg-video-intel` by creating the following file:
 
-```
+```config
 /usr/share/X11/xorg.conf.d/10-backlight.conf
 
 Section "Device"
@@ -30,7 +30,6 @@ Section "Device"
 	Driver "intel"
 #	Option "AccelMethod" "uxa"
 EndSection
-
 ```
 
 And indeed it worked for me too. I created this file and rebooted, and `xbacklight` worked again!
