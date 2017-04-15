@@ -24,7 +24,7 @@
          var sheet;
          sheet = document.getElementById('typekit-styles');
          if (sheet !== null && !sheet.innerHTML) {
-           sheet.innerHTML = sessionStorage.getItem('typekit_css_url');
+           sheet.innerHTML = sessionStorage.getItem(this.session_key);
          }
        },
        makeScript: function() {
@@ -81,15 +81,15 @@
        event.preventDefault();
        document.body.classList.toggle('dark-mode');
        if (document.body.classList.contains('dark-mode')) {
-         try { localStorage.setItem('dark-mode', true); } catch (e) { }
+         try { sessionStorage.setItem('dark-mode', true); } catch (e) { }
        } else {
-         try { localStorage.setItem('dark-mode', false); } catch (e) { }
+         try { sessionStorage.setItem('dark-mode', false); } catch (e) { }
        }
      });
      document.body.insertBefore(darkLink, document.body.children[0]);
 
      try {
-       if (localStorage.getItem('dark-mode') === "false") {
+       if (sessionStorage.getItem('dark-mode') === "false") {
          document.body.classList.remove('dark-mode');
        }
      } catch (e) { }
