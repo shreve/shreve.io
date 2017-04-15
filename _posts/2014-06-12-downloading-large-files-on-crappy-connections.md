@@ -15,14 +15,19 @@ From the Curl Manual:
 ```
 -C, --continue-at <offset>
 
-Continue/Resume a previous file transfer at the given offset. The given offset is the exact number of bytes that will be skipped, counting from the beginning of the source file before it is transferred to the destination.
+Continue/Resume a previous file transfer at the given offset.
+The given offset is the exact number of bytes that will be
+skipped, counting from the beginning of the source file
+before it is transferred to the destination.
 
-Use  "-C -" to tell curl to automatically find out where/how to resume the transfer. It then uses the given output/input files to figure that out.
+Use  "-C -" to tell curl to automatically find out
+where/how to resume the transfer. It then uses the given
+output/input files to figure that out.
 ```
 
 So it's a matter of just repeating `curl -C - "url"` until the download finishes. I wrote a little script to do just this.
 
-```
+```bash
 # Repeat a command until it finishes with exit code 0
 keep-doing() {
   # set a default non-zero value
@@ -47,14 +52,14 @@ download() {
 
 Now downloading large files is as simple as
 
-```
-download http://jacobevanshreve.me
+```bash
+download http://example.com/large-file.zip
 ```
 
 If the url you're trying to download includes an ampersand (`&`), bash will try to fork the process, and you'll get output like `[1] 45840`. You simply need to surround the url in quotes.
 
-```
-download "http://jacobevanshreve.me/?var=value&ttl=123456789"
+```bash
+download "http://example.com/large-file.zip?var=value&ttl=123456789"
 ```
 
 Enjoy!
