@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6
   margin-top: 1em
   margin-bottom: 1em
 
+label, button
+  @extend %futura
+  font-weight: bold
+
 h1, h2
   text-align: center
 
@@ -27,11 +31,16 @@ h3
   font-size: 1.25rem
   text-transform: uppercase
 
+label
+  display: inline-block
+  font-size: 1.1rem
+  margin-bottom: 1em
+
 header *
   @extend %futura
   text-align: center
 
-p, li, a, cite, time
+p, li, a, cite, time, input, textarea
   @extend %tisa
   line-height: 1.5
   font-size: 1.1rem
@@ -97,3 +106,6 @@ blockquote
   @media only screen and (max-width: 500px)
     display: block
     margin: 0
+
+.centered
+  text-align: center
