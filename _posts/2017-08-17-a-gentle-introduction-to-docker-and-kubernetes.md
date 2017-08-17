@@ -3,6 +3,7 @@ layout: post
 title: A Gentle Introduction to Docker and Kubernetes
 date: 2017-08-17
 tags: devops beginners-guide
+description: Get introduced to the concepts at play in the Kubernetes ecosystem to begin your journey to devops bliss
 ---
 
 I've spent many years doing manual developer operations work.
