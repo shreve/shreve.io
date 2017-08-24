@@ -29,11 +29,11 @@ A cluster is a collection of nodes. You can easlily have many applications in a 
 
 ### Nodes
 
-A node is a VPS within a cluster. It's empty except for an OS and software that runs and monitors Kube pods.
+A node is a VPS within a cluster. It's empty except for an OS and software that runs and monitors pods.
 
 ### Namespaces
 
-A namespaces is an arbitrary identifier that allows you to scope your views and your queries. This scoping makes it easy for you to have 10 apps with production and staging deployments without accidentally deleting or modifying the wrong one.
+A namespace is an arbitrary identifier that allows you to scope your views and your queries. This scoping makes it easy for you to have 10 apps with production and staging deployments without accidentally deleting or modifying the wrong one.
 
 ### Deployments
 
