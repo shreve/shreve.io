@@ -2,7 +2,7 @@ exclude: [Gemfile, Gemfile.lock, CNAME, readme.md]
 time_zone: America/Detroit
 encoding: utf-8
 show_drafts: true
-permalink: pretty
+permalink: /:year/:month/:day/:title
 repository: shreve/shreve.github.io
 
 collections:
