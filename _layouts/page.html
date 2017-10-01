@@ -15,7 +15,7 @@
     <title> {{ page.title }} | Jacob Evan Shreve</title>
     <meta name="description" content="{{ page.description }}">
     <script>
-      if (window.location.protocol != "https:" && window.location.hostname != "localhost") {
+     if (window.location.protocol != "https:" && window.location.hostname != "localhost") {
        window.location.protocol = "https:" }
     </script>
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
@@ -55,7 +55,7 @@
        cacheUrl: function() {
          var sheet, styles;
          if (this.__session()) {
-         styles = document.head.getElementsByTagName('style');
+           styles = document.head.getElementsByTagName('style');
            sheet = styles[styles.length - 1];
            if (sheet) {
              return sessionStorage.setItem(this.session_key, sheet.innerHTML);
@@ -115,6 +115,23 @@
      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
      ga('create', 'UA-37971025-3', 'auto');
      ga('send', 'pageview');
+    </script>
+    <script>
+     var links = document.querySelectorAll('a');
+
+     for (var i = 0; i < links.length; i++) {
+       var link = links[i];
+
+       if (link.href && link.getAttribute('href')[0] === '#') {
+         link.addEventListener('click', function(event) {
+           event.preventDefault();
+           var target = document.querySelector('[name="' + event.target.getAttribute('href').slice(1) + '"]');
+           var top = target.getBoundingClientRect().top
+           window.location.hash = event.target.getAttribute('href');
+           window.scrollTo({ top: top });
+         });
+       }
+     }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js"></script>
   </body>
