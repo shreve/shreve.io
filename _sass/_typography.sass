@@ -1,21 +1,24 @@
 %body-font
   font-family: Georgia
 
-%futura
+%display-font
   font-family: "futura-pt", Futura, "Avenir Next LT Pro", Helvetica, Arial
 
 .wf-loading
-  %body-font, %futura
+  %display-font
     color: transparent
 
 h1, h2, h3, h4, h5, h6
-  @extend %futura
+  @extend %display-font
   font-weight: bold
   margin-top: 1em
   margin-bottom: 1em
 
+  span
+    @extend %display-font
+
 label, button
-  @extend %futura
+  @extend %display-font
   font-weight: bold
 
 h1, h2
