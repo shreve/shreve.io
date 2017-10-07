@@ -21,54 +21,7 @@
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="canonical" href="https://jacobevanshreve.me{{ page.url }}" />
-    <style id="typekit-styles" type="text/css"></style>
-    <script>
-     window.Typography = {
-       session_key: 'typekit_css',
-       init: function() {
-         if (this.__session() && sessionStorage.getItem(this.session_key)) {
-           return this.makeSheet();
-         } else {
-           return this.makeScript();
-         }
-       },
-       makeSheet: function() {
-         var sheet;
-         sheet = document.getElementById('typekit-styles');
-         if (sheet !== null && !sheet.innerHTML) {
-           sheet.innerHTML = sessionStorage.getItem(this.session_key);
-         }
-       },
-       makeScript: function() {
-         var script;
-         script = document.createElement('script');
-         script.src = 'https://use.typekit.net/uqq4alz.js';
-         script.onload = function() {
-           return Typekit.load({
-             active: function() {
-               return Typography.cacheUrl();
-             }
-           });
-         };
-         return document.head.appendChild(script);
-       },
-       cacheUrl: function() {
-         var sheet, styles;
-         if (this.__session()) {
-           styles = document.head.getElementsByTagName('style');
-           sheet = styles[styles.length - 1];
-           if (sheet) {
-             return sessionStorage.setItem(this.session_key, sheet.innerHTML);
-           }
-         }
-       },
-       __session: function() {
-         return window.hasOwnProperty('sessionStorage');
-       }
-     };
-
-     Typography.init();
-    </script>
+    <link rel="stylesheet" href="https://use.typekit.net/uqq4alz.css" />
   </head>
   <body class="{{ page.layout }} dark-mode">
     {% if page.url != '/' %}<a class="logo" href="/">JS</a>{% endif %}
