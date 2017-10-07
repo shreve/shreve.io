@@ -1,5 +1,5 @@
 %body-font
-  font-family: "garamond-premier-pro", Times New Roman
+  font-family: Georgia
 
 %futura
   font-family: "futura-pt", Futura, "Avenir Next LT Pro", Helvetica, Arial
@@ -37,8 +37,11 @@ label
   margin-bottom: 1em
 
 header *
-  @extend %futura
   text-align: center
+
+header
+  time, li
+    font-style: italic
 
 p, li, a, cite, time, input, textarea
   @extend %body-font
