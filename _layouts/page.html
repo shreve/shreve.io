@@ -43,13 +43,15 @@
      var darkLink = document.createElement('a');
      darkLink.id = "dark-mode-link"
      darkLink.title = "Dark Mode";
-     darkLink.text = "🌝";
+     darkLink.text = "🌞";
      darkLink.addEventListener('click', function(event) {
        event.preventDefault();
        document.body.classList.toggle('dark-mode');
        if (document.body.classList.contains('dark-mode')) {
+         darkLink.text = "🌞";
          try { sessionStorage.setItem('dark-mode', true); } catch (e) { }
        } else {
+         darkLink.text = "🌜";
          try { sessionStorage.setItem('dark-mode', false); } catch (e) { }
        }
      });
