@@ -16,38 +16,40 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
   <p>
     You can email me (jacob [at] shreve.io) or tweet me (<a href="https://twitter.com/_shreve">@_shreve</a>).
   </p>
-  <h3>Things I'm working on</h3>
-  <ul>
-    <li><a href="https://wellopp.com/" title="Wellopp - Wellness = Opportunity">Wellopp</a>
-      <p>
-        I joined the Wellopp team in January 2016. I am currently the product lead of
-        our SMS-based patient interaction tool, as well as a supporting developer on
-        several of our other products.
-      </p></li>
+  <div class="col">
+    <h3>Things I'm working on</h3>
+    <ul>
+      <li><a href="https://wellopp.com/" title="Wellopp - Wellness = Opportunity">Wellopp</a>
+        <p>
+          I joined the Wellopp team in January 2016. I am currently the product lead of
+          our SMS-based patient interaction tool, as well as a supporting developer on
+          several of our other products.
+        </p></li>
 
-    <li><a href="http://www.engin.umich.edu/college/academics/undergrad/degrees/options">B.S.E. in Computer Science	from UMich</a>
-      <p>
-        Beginning Fall 2016, I started my junior year at the University of Michigan's school of engineering.
-        By the time I finish, I'll have taken courses on discrete math, algorithms, cryptography, operating systems,
-        networks, compilers, machine learning, and more.
-      </p> </li>
+      <li><a href="http://www.engin.umich.edu/college/academics/undergrad/degrees/options">B.S.E. in Computer Science	from UMich</a>
+        <p>
+          Beginning Fall 2016, I started my junior year at the University of Michigan's school of engineering.
+          By the time I finish, I'll have taken courses on discrete math, algorithms, cryptography, operating systems,
+          networks, compilers, machine learning, and more.
+        </p> </li>
 
-    <li><a href="https://www.sugu.org" title="Sugu, the adult lifestyle brand">Sugu</a>
-      <p>
-        Sugu is my growing brand of adult lifestyle products and services. As of now, it's just me, so it's growing slow.
-        What motivated me to start such an ambitious project was the lack of transparency, reputability, and frankly
-        good design in all the different niche sites I found.<br>
-        <em>Sugu stands for sex positivity, open information, and accessibility.</em>
-      </p></li>
+      <li><a href="https://www.sugu.org" title="Sugu, the adult lifestyle brand">Sugu</a>
+        <p>
+          Sugu is my growing brand of adult lifestyle products and services. As of now, it's just me, so it's growing slow.
+          What motivated me to start such an ambitious project was the lack of transparency, reputability, and frankly
+          good design in all the different niche sites I found.<br>
+          <em>Sugu stands for sex positivity, open information, and accessibility.</em>
+        </p></li>
 
-    <li><a href="https://www.sugutoys.com" title="Sugu Toys">Sugu Toys</a>
-      <p>
-        Sugu Toys is the first service from Sugu. As the name suggests, it's an online sex toy store. Furthering the
-        message of sex positivity, our mantra is “We’re here to sell you sex toys and accessories because sex is awesome and you’re great.”
-      </p></li>
-  </ul>
+      <li><a href="https://www.sugutoys.com" title="Sugu Toys">Sugu Toys</a>
+        <p>
+          Sugu Toys is the first service from Sugu. As the name suggests, it's an online sex toy store. Furthering the
+          message of sex positivity, our mantra is “We’re here to sell you sex toys and accessories because sex is awesome and you’re great.”
+        </p></li>
+    </ul>
+  </div>
 
-  <section class="row">
+  <section class="row-2">
     <div class="col">
       <h3>Places you can find me</h3>
       <ul>
@@ -55,7 +57,6 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
         <li><a href="https://twitter.com/_shreve">Twitter</a></li>
         <li><a href="http://stackoverflow.com/users/1893290/jacob-evan-shreve">Stack Overflow</a></li>
         <li><a href="http://www.linkedin.com/in/jacobevanshreve">LinkedIn</a></li>
-        <li><a href="https://www.upwork.com/freelancers/~016534d1c3eddda264" title="Jacob Evan Shreve on Upwork">Upwork</a></li>
       </ul>
     </div>
     <div class="col">
@@ -63,6 +64,7 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
       <ul>
         <li>ruby on rails</li>
         <li>erlang/elixir/OTP</li>
+        <li>kubernetes</li>
         <li>software crafstmanship</li>
         <li>progressive enhancement</li>
         <li>systems administration</li>
@@ -70,21 +72,23 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
     </div>
   </section>
 
-  <section>
-    <h3>Other things on this site</h3>
-    <ul>
-      <li><a href="http://i.❤.dakota.jacobevanshreve.me">I love my girlfriend Dakota</a>.</li>
-      <li><a href="/recipes/">I know a few recipes</a>.</li>
-    </ul>
-  </section>
+  <section class="row-2">
+    <div class="col">
+      <h3>Blog Posts</h3>
+      <ul>
+        {% for post in site.posts %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
 
-  <section>
-    <h3>Blog Posts</h3>
-    <ul>
-      {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+    <div class="col">
+      <h3>Other things on this site</h3>
+      <ul>
+        <li><a href="http://i.❤.dakota.jacobevanshreve.me">I love my girlfriend Dakota</a>.</li>
+        <li><a href="/recipes/">I know a few recipes</a>.</li>
+      </ul>
+    </div>
   </section>
 
   <blockquote>

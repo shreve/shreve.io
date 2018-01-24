@@ -1,0 +1,17 @@
+$col-gap: 3em
+$col-width: (50em - $col-gap) / 2.25
+
+.row-2
+  -webkit-columns: 2 $col-width
+  -moz-columns: 2 $col-width
+  columns: 2 $col-width
+
+  -webkit-column-gap: $col-gap
+  -moz-column-gap: $col-gap
+  column-gap: $col-gap
+
+.col
+  display: inline-block
+  vertical-align: top
+  width: 100%
+  margin-bottom: $col-gap

@@ -5,6 +5,7 @@
 @import 'typography'
 @import 'forms'
 @import 'themes'
+@import 'layout'
 
 *
   box-sizing: border-box
@@ -45,7 +46,7 @@ body
     padding: 1em
     height: 100%
     width: 100%
-    max-width: 51em
+    max-width: 52em
     margin: 0 auto 10em
 
 footer
@@ -65,10 +66,6 @@ footer
 
   span
     margin: 0
-
-.col
-  display: inline-block
-  vertical-align: top
 
 .strike
   text-decoration: line-through
@@ -92,11 +89,6 @@ cite
 cite::before
   display: inline-block
   content: '—'
-
-@media (min-width: 40em)
-
-  .col
-    width: 49.5%
 
 #dark-mode-link
   position: absolute
