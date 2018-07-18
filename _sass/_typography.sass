@@ -4,6 +4,9 @@
 %display-font
   font-family: "futura-pt", Futura, "Avenir Next LT Pro", Helvetica, Arial
 
+%fancy-font
+  font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif
+
 .wf-loading
   %display-font
     color: transparent
@@ -17,22 +20,33 @@ h1, h2, h3, h4, h5, h6
   span
     @extend %display-font
 
-label, button
-  @extend %display-font
-  font-weight: bold
-
 h1, h2
   text-align: center
 
 h1
-  font-size: 2.5rem
+  font-size: 3.5rem
 
 h2
-  font-size: 1.75rem
+  font-size: 2.5rem
 
 h3
-  font-size: 1.25rem
+  font-size: 2rem
+
+label, button
+  @extend %display-font
+  font-weight: bold
   text-transform: uppercase
+
+dt
+  @extend %display-font
+  font-weight: bold
+  font-size: 1.6rem
+  margin-bottom: 1rem
+
+.amp
+  @extend %fancy-font
+  font-style: italic
+  font-weight: normal
 
 label
   display: inline-block
@@ -46,19 +60,19 @@ header
   time, li
     font-style: italic
 
-p, li, a, cite, time, input, textarea
+p, li, a, cite, time, input, textarea, dd
   @extend %body-font
   line-height: 1.5
-  font-size: 1.1rem
+  font-size: 1.5rem
   margin-bottom: 1.5em
 
 span
   @extend %body-font
   line-height: 1.5
 
-p, ol, ul, .content-element
+p, ol, ul, .content-element, dd
   width: 100%
-  margin: 0 1em 1.5em
+  padding: 0 1em 1.5em
 
 ol
   list-style-type: decimal
@@ -66,7 +80,6 @@ ol
 
   li
     padding-left: 0.5em
-
 
 code, code *
   font-family: Fira Mono, Monaco, monospace
