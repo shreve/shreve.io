@@ -6,15 +6,16 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
 
 <header>
   <h1>Jacob Evan Shreve</h1>
-  <h2 class="flex-title">Aspiring Human <span class="flex-title__elbow">&</span> Electrical Wizard</h2>
+  <h2 class="flex-title">Aspiring Human <span class="flex-title__elbow amp">&</span> Computer Wizard</h2>
 </header>
 <article>
   <p>
-    Hey there! My name's Jacob, and I run Shreve Industries, a software research and development company.
+    Hey there! My name's Jacob. I'm a technology consultant and computer science student.
+    I've been programming for about <time class="years-since" datetime="2008">10</time> years and
+    using Ruby on Rails for about <time class="years-since" datetime="2012">6</time>.
   </p>
-  <h3>Get in touch with me</h3>
   <p>
-    You can email me (jacob [at] shreve.io) or tweet me (<a href="https://twitter.com/_shreve">@_shreve</a>).
+    If you'd like to get in touch, you can email me (jacob [at] shreve.io) or tweet me (<a href="https://twitter.com/_shreve">@_shreve</a>).
   </p>
   <div class="col">
     <h3>Things I'm working on</h3>
@@ -23,7 +24,8 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
         <p>
           I joined the Wellopp team in January 2016. I am currently the product lead of
           our SMS-based patient interaction tool, as well as a supporting developer on
-          several of our other products.
+          several of our other products and working on moving our infrasturcture to
+          Kubernetes.
         </p></li>
 
       <li><a href="http://www-personal.umich.edu/~shreve/" title="Jacob Evan Shreve :: University of Michgan Student">B.S.E. in Computer Science	from UMich</a>
@@ -60,29 +62,6 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
       </ul>
     </div>
     <div class="col">
-      <h3>Buzzwords</h3>
-      <ul>
-        <li>ruby on rails</li>
-        <li>erlang/elixir/OTP</li>
-        <li>kubernetes</li>
-        <li>software crafstmanship</li>
-        <li>progressive enhancement</li>
-        <li>systems administration</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="row-2">
-    <div class="col">
-      <h3>Blog Posts</h3>
-      <ul>
-        {% for post in site.posts %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="col">
       <h3>Other things on this site</h3>
       <ul>
         <li><a href="/resume/resume.pdf">I have a r&eacute;sum‌&eacute;</a>.</li>
@@ -92,8 +71,41 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
     </div>
   </section>
 
+  <section class="row-2">
+    <div class="col">
+      <h3>Buzzwords</h3>
+      <ul>
+        <li>ruby on rails</li>
+        <li>kubernetes</li>
+        <li>erlang/elixir/OTP</li>
+        <li>rust</li>
+        <li>software crafstmanship</li>
+        <li>progressive enhancement</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Blog Posts</h3>
+      <ul>
+        {% for post in site.posts %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
   <blockquote>
-    <p>This song goes out to anyone out there that believes that maybe, just maybe, we were all born with the moral obligation to leave this world a better place than the world that we’ve found.</p>
-    <cite>Rise Against, <em>Prayer of the Refugee (Live)</em></cite>
+    <p>This song goes out to anybody here that believes that maybe, just maybe, we were all born with the moral obligation to leave this world a better place than the world that we’ve found.</p>
+    <cite>Tim McIlrath</cite>
   </blockquote>
 </article>
+
+<script>
+ let yearsSince = (year) => {
+   let current = (new Date()).getYear() + 1900
+   return current - parseInt(year);
+ }
+
+ for (let element of document.getElementsByClassName('years-since')) {
+   element.innerText = yearsSince(element.dateTime);
+ }
+</script>
