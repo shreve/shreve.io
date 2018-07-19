@@ -18,7 +18,8 @@ I was able to relocate the Stack Overflow question I had taken the script from:
 The answer I had chosen is the highest rated, and relies on `/proc/stat`.
 
 ```bash
-grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
+grep 'cpu ' /proc/stat |
+awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
 ```
 
 It reads in the fields from `/proc/stat`, which breaks down the time spent on each task by your CPUs.
@@ -85,18 +86,21 @@ save_current() {
 }
 
 # If the temp file doesn't exist, save it now.
-# This means the current reading will be pretty inaccurate, usually too high,
-# because it measures CPU usage from now until 2 lines later in this program.
+# This means the current reading will be pretty inaccurate,
+# usually too high, because it measures CPU usage from now
+# until 2 lines later in this program.
 [ ! -e /tmp/cpustat ] && save_current
 
-# Load the previous state from the temp file, and capture the current output.
+# Load the previous state from the temp file, and capture
+# the current output.
 previous=$(cat /tmp/cpustat)
 current=$(grep 'cpu ' /proc/stat)
 
 # Define the awk script to parse the two lines of input.
-# For the first line (NR == 1), just save the working and idle values.
-# For subsequent rows (NR > 1), calculate the difference between this line and
-# the first line and calculate the total average percentage.
+# For the first line (NR == 1), save the values.
+# For subsequent rows (NR > 1), calculate the difference
+# between this line and the first line and calculate the
+# total average percentage.
 awkscript='NR == 1 {
              owork=($2+$4);
              oidle=$5;
@@ -104,14 +108,15 @@ awkscript='NR == 1 {
            NR > 1 {
              work=($2+$4)-owork;
              idle=$5-oidle;
-             printf "%.1f%", 100 * work / (work + idle)
+             printf "%.1f%", 100 * work / (work+idle)
            }'
 
-# Execute the awk script against the two lines of input and save the string.
+# Execute the awk script against the two lines of input
+# and save the string.
 usage=$(echo -e "$previous\n$current" | awk "$awkscript")
 
-# Save the current value. The next time you run this script will calculate
-# average usage since this line was run.
+# Save the current value. The next time you run this script
+# will calculate average usage since this line was run.
 save_current
 
 echo "$usage"

@@ -1,33 +1,62 @@
+// Transition things like background to make it easier on the eyes when
+// switching themes.
 body.transitions
   *
     transition: all 0.5s
 
-
 //
 //   Light Mode
 //
-
 body
-  background: #fff
+  background: #FFF
   color: #222
 
-a, a:visited
-  color: #0000FF
+  %main-background
+    background: #FFF
 
-a.logo
-  color: #222
+  %embed-background
+    background: darken(#FFF, 2%)
 
-code
-  border-color: #ddd
-  background-color: #f9f9f9
+  %text-color
+    color: #222
 
-pre
-  border-color: #ddd
-  background-color: #f9f9f9
+  %link-color
+    color: #0000FF
 
-blockquote
-  color: #888
+  %subtext-color
+    color: #666
 
+  %border-color
+    border-color: #222
+
+//
+//   Dark Mode
+//
+body.dark-mode
+  background: #090909
+  color: #ddd
+
+  %main-background
+    background: #090909
+
+  %embed-background
+    background: lighten(#090909, 2%)
+
+  %text-color
+    color: #ddd
+
+  %link-color
+    color: #35c0ff
+
+  %subtext-color
+    color: #aaa
+
+  %border-color
+    border-color: #ddd
+
+//
+//   Light Mode Syntax Highlighting
+//
 .highlight .hll
   background-color: #ffffcc
 .highlight .c
@@ -177,45 +206,10 @@ blockquote
   color: #009999 /* Literal.Number.Integer.Long */
 
 
-
-
-
 //
-//   Dark Mode
+//    Dark Mode Syntax Highlighting
 //
-=theme-code($background, $embed, $text, $link)
-  background: $background
-  color: $text
-
-  a, a:visited
-    color: $link
-
-  a.logo
-    color: $text
-
-  pre
-    background-color: $embed
-    border-color: $text
-
-  code
-    background-color: $embed
-    border-color: $text
-
-
-$text-color: #ddd
-$subtext-color: #aaa
-
-// $background-color: #1a2632
-$background-color: #090909
-$embed-color: lighten($background-color, 2%)
-
-// $link-color: #03A9F4
-$link-color: #35c0ff
-
 .dark-mode
-  $dark-theme: (background: #090909, embed: $embed-color, text: #ddd, link: #35c0ff)
-  +theme-code($dark-theme...)
-
   // Monokai Syntax Highlighting
   .highlight .hll
     background-color: #272822
