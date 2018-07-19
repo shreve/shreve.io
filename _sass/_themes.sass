@@ -1,6 +1,6 @@
-*
-  transition: background color border 0.5s
-
+body.transitions
+  *
+    transition: all 0.5s
 
 
 //
@@ -183,25 +183,38 @@ blockquote
 //
 //   Dark Mode
 //
-
-.dark-mode
-  background: #1a2632
-  background: #090909
-  color: #eee
+=theme-code($background, $embed, $text, $link)
+  background: $background
+  color: $text
 
   a, a:visited
-    color: #35c0ff /* #03A9F4 */
+    color: $link
 
   a.logo
-    color: white
+    color: $text
 
   pre
-    background-color: #151f29
-    border-color: #304251
+    background-color: $embed
+    border-color: $text
 
   code
-    background-color: #151f29
-    border: 1px solid #304251
+    background-color: $embed
+    border-color: $text
+
+
+$text-color: #ddd
+$subtext-color: #aaa
+
+// $background-color: #1a2632
+$background-color: #090909
+$embed-color: lighten($background-color, 2%)
+
+// $link-color: #03A9F4
+$link-color: #35c0ff
+
+.dark-mode
+  $dark-theme: (background: #090909, embed: $embed-color, text: #ddd, link: #35c0ff)
+  +theme-code($dark-theme...)
 
   // Monokai Syntax Highlighting
   .highlight .hll

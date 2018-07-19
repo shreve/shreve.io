@@ -61,6 +61,7 @@
        if (sessionStorage.getItem('dark-mode') === "false") {
          document.body.classList.remove('dark-mode');
        }
+       setTimeout(function() { document.body.classList.add('transitions') }, 0);
      } catch (e) { }
     </script>
     {% if page.url != '/' %}

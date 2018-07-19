@@ -1,10 +1,10 @@
 ---
 ---
 
+@import 'themes'
 @import 'reset'
 @import 'typography'
 @import 'forms'
-@import 'themes'
 @import 'layout'
 
 *, *::before, *::after
@@ -22,7 +22,9 @@ body
   align-items: center
   justify-content: center
   font-size: 16px
-  transition: background 2s
+
+  &.transitions
+    transition: background 0.5s
 
 .logo
   @extend %display-font
@@ -93,13 +95,12 @@ cite::before
   content: '—'
 
 #dark-mode-link
-  position: absolute
+  position: fixed
   font-size: 1.2em
   top: 0.75em
   right: 0.75em
   text-decoration: none
   z-index: 1000
-
 
 ul.tags
   list-style-type: none
@@ -122,6 +123,34 @@ pre
   overflow-x: auto
   overflow-y: hidden
   padding: 1em
-  margin-bottom: 1.5em
-  border: 1px solid #ddd
+  border: 1px solid $text-color
   border-radius: 4px
+  font-size: 1.2em
+  margin-bottom: 4.5rem
+
+.blog-post
+  display: grid
+  grid-template-columns: 10em auto
+  align-items: baseline
+
+  time
+    font-size: 1rem
+    font-style: italic
+    color: $subtext-color
+    text-align: right
+    padding-right: 1em
+    white-space: nowrap
+    order: 1
+    margin: 0
+
+  a
+    order: 2
+    margin: 0
+
+  @media only screen and (max-width: 50em)
+    display: block
+
+  @media only screen and (max-width: 35em)
+    time
+      display: block
+      text-align: left

@@ -6,13 +6,17 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
 
 <header>
   <h1>Jacob Evan Shreve</h1>
-  <h2 class="flex-title">Aspiring Human <span class="flex-title__elbow amp">&</span> Computer Wizard</h2>
+  <h2 class="flex-title">
+    <span class="rigid">Aspiring Human</span>
+    <span class="flex-title__elbow amp">&</span>
+    <span class="rigid">Computer Wizard</span></h2>
 </header>
 <article>
   <p>
-    Hey there! My name's Jacob. I'm a technology consultant and computer science student.
+    Hey there! My name's Jacob. I live in Ypsilanti, MI, and I'm a technology consultant and computer science student.
     I've been programming for about <time class="years-since" datetime="2008">10</time> years and
-    using Ruby on Rails for about <time class="years-since" datetime="2012">6</time>.
+    using Ruby on Rails for about <time class="years-since" datetime="2012">6</time>. I'm currently
+    unavailable for new work, but check back in mid-2020 &mdash; I should be graduated by then.
   </p>
   <p>
     If you'd like to get in touch, you can email me (jacob [at] shreve.io) or tweet me (<a href="https://twitter.com/_shreve">@_shreve</a>).
@@ -71,26 +75,36 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
     </div>
   </section>
 
+  <h3>Buzzwords</h3>
   <section class="row-2">
     <div class="col">
-      <h3>Buzzwords</h3>
       <ul>
         <li>ruby on rails</li>
-        <li>kubernetes</li>
-        <li>erlang/elixir/OTP</li>
         <li>rust</li>
-        <li>software crafstmanship</li>
-        <li>progressive enhancement</li>
+        <li>elixir</li>
+        <li>linux</li>
       </ul>
     </div>
     <div class="col">
-      <h3>Blog Posts</h3>
       <ul>
-        {% for post in site.posts %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
+        <li>kubernetes</li>
+        <li>software crafstmanship</li>
+        <li>progressive enhancement</li>
+        <li>emacs</li>
       </ul>
     </div>
+  </section>
+
+  <section>
+    <h3>Blog Posts</h3>
+    <ul class="blog-post-list">
+      {% for post in site.posts %}
+      <li class="blog-post">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        {% include date.html date=post.date %}
+      </li>
+      {% endfor %}
+    </ul>
   </section>
 
   <blockquote>

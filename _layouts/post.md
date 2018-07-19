@@ -8,16 +8,12 @@ permalink: page.url
 <h1>{{ page.title }}</h1>
 
 <div class="content-element">
-<time datetime="{{ page.date }}">
-{% assign day = page.date | date: "%-d"  %}
-{% case day %}
-  {% when '1' or '21' or '31' %}{{ day }}st
-  {% when '2' or '22' %}{{ day }}nd
-  {% when '3' or '23' %}{{ day }}rd
-  {% else %}{{ day }}th
-{% endcase %}
-{{ page.date | date: "of %B, %Y" }}
-</time>
+<span class="timestamps">
+    {% include date.html date=page.date %}
+    {% if page.updated %}
+    ; updated {% include date.html date=page.updated %}
+    {% endif %}
+</span>
 <br>
 {% if page.tags != empty %}
 <ul class="tags">
