@@ -6,6 +6,10 @@ permalink: /:year/:month/:day/:title
 repository: shreve/shreve.github.io
 
 collections:
+  posts:
+    output: true
+    permalink: /:collection/:title
+
   recipes:
     output: true
     permalink: /:collection/:title
