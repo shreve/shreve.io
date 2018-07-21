@@ -1,4 +1,6 @@
-<time datetime="{{ include.date }}">
+<time
+  datetime="{{ include.date }}"
+  {% if include.prop %}itemprop="{{include.prop}}"{% endif %}>
   {% assign day = include.date | date: "%-d"  %}
   {% case day %}
     {% when '1' or '21' or '31' %}{{ day }}st
