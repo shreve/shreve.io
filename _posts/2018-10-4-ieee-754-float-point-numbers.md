@@ -1,7 +1,9 @@
 ---
 title: IEEE-754 Floating Point Numbers
 date: 2018-10-04
-tags: programming computer-science
+tags:
+- programming
+- computer science
 description: Some notes on how floating point numbers are stored and how to use them
 ---
 
