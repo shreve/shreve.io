@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Fixing xbacklight"
 date: 2017-03-16
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A Gentle Introduction to Kubernetes
 date: 2017-08-17
 updated: 2018-07-21

@@ -98,7 +98,7 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
   <section>
     <h3>Blog Posts</h3>
     <ul class="blog-post-list">
-      {% assign posts = site.posts | sort: 'date' | sort: 'updated' | reverse %}
+      {% assign posts = site.posts | sort: 'date' | reverse %}
       {% for post in posts %}
       <li class="blog-post">
         <a href="{{ post.url }}">{{ post.title }}</a>
@@ -127,4 +127,29 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
  for (let element of document.getElementsByClassName('years-since')) {
    element.innerText = yearsSince(element.dateTime);
  }
+
+ let sortVal = (post) => {
+   return post.getElementsByTagName('time')[0].getAttribute('datetime');
+ }
+
+ let sortFunc = (post1, post2) => {
+   if (sortVal(post1) < sortVal(post2)) {
+     return 1;
+   } else if (sortVal(post1) > sortVal(post2)) {
+     return -1;
+   } else {
+     return 0;
+   }
+ }
+
+ let sortPosts = (posts) => {
+   posts = Array.prototype.slice.call(posts).sort(sortFunc);
+   let list = document.getElementsByClassName('blog-post-list')[0];
+
+   for (let element of posts) {
+     list.appendChild(element);
+   }
+ }
+
+ sortPosts(document.getElementsByClassName('blog-post'))
 </script>

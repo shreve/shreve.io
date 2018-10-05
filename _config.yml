@@ -26,3 +26,9 @@ defaults:
       type: 'recipes'
     values:
       layout: recipe
+
+  -
+    scope:
+      type: 'post'
+    values:
+      layout: post

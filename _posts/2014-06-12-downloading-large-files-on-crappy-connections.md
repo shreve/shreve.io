@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to download large files on crappy connections with bash and curl"
 date: 2014-06-12
 tags:

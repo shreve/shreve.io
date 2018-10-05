@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Calculating current CPU usage on Linux
 date: 2017-09-28
 tags: linux bash
