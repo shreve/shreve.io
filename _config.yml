@@ -29,6 +29,6 @@ defaults:
 
   -
     scope:
-      type: 'post'
+      type: 'posts'
     values:
       layout: post
