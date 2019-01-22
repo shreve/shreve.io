@@ -7,11 +7,21 @@ tags:
 description: Some notes on how floating point numbers are stored and how to use them
 ---
 
-Here are some notes about how floating point numbers are stored and how to use
-them.
+Many programmers are aware of floating point numbers, typically called floats, and their value for storing decimal values.
+Most of them are also aware of some vague danger in using them which can cause some really bizarre-seeming results.
 
-Floats basically use scientific notation, but with 2 instead of 10. They can
-either be stored as 32 or 64 bits.
+For example, in Ruby,
+
+```
+0.1 + 0.2 = 0.30000000000000004
+```
+
+This is due to the way we store these decimal values.
+
+Floats use scientific notation in binary format, meaning they use 2 as a base instead of 10.
+These rounding errors occur because we can't quite represent the exact correct answer within our limits of efficient time or memory usage.
+
+Floats are either stored as 32 or 64 bits.
 
 1. 1 sign bit
 
@@ -19,24 +29,31 @@ either be stored as 32 or 64 bits.
 
 3. 23 or 52 mantissa bits
 
-"Mantissa" is the word for the base number between being multiplied in
+"Mantissa" is the word for the number between being multiplied in
 scientific notation.
 
-Several things to know up front:
+There are several caveats to know up front:
 
-1. The exponent is unsigned, but biased. For 32 bit, offset 127. For 64 bit,
-   offset 1023. For minimal exponent, use value 1. For value of 0, use the value
+1. The exponent is unsigned, but biased by 127 or 1023 depending on 32 or 64 bit.
+   This means
+   For minimal exponent, use value 1. For value of 0, use the value
    of the offset. For maximal exponent, use double the value of the offset.
 
-2. Mantissa bits are read left to right and represent fractional binary values.
+2. Mantissa bits are read left to right, contrary to typical binary, and represent fractional binary values.
 
 3. The mantissa bits should exclude a 1 to the left. For correct scientific
    notation, we should always have a 1 in the most significant value. Since it's
    always the same value, we skip it when encoding.
 
-## Encoding Example
+   For example, having 0.011 wouldn't make sense, so we left shift until there is a 1 and adjust the exponent.
 
-Encoding a decimal number to floating point
+## A Few Examples
+
+The following are a few examples of using floating point encoding by hand in order to better understand what's happening under the hood.
+
+### Encoding Example
+
+Let's encode the following number to floating point.
 
     -450.875
 
@@ -75,9 +92,9 @@ Encoding a decimal number to floating point
         1 10000111 11000010111000000000000
         Or, in hex 0xc3e17000
 
-## Addition Example
+### Addition Example
 
-Add together two floating point numbers
+Let's add together two floating point values after they are encoded.
 
     25.125 + -122.625
 
