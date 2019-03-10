@@ -5,6 +5,9 @@ show_drafts: true
 permalink: /:year/:month/:day/:title
 repository: shreve/shreve.github.io
 
+plugins:
+  - jekyll-feed
+
 collections:
   posts:
     output: true
