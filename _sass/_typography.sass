@@ -194,9 +194,12 @@ code, code *
     font-size: 1rem
     text-align: right
     padding-right: 1em
-    white-space: nowrap
     order: 1
     margin: 0
+
+  span
+    white-space: nowrap
+    display: block
 
   a
     order: 2
@@ -206,8 +209,7 @@ code, code *
     display: block
 
   @media only screen and (max-width: 35em)
-    time
-      display: block
+    span
       text-align: left
 
 .heart

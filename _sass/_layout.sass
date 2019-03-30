@@ -17,8 +17,13 @@ body
   &.transitions
     transition: background 0.5s
 
+.hero-image
+  max-width: 100%
+  width: 250px
+  margin: 0 auto 2em
+  display: block
+
 %floater
-  @extend %main-background
   position: fixed
   z-index: 1000
   top: 0
@@ -34,6 +39,9 @@ a, a:visited
     left: 0
     margin: 0 auto
     font-weight: bold
+
+    img
+      width: 1.5em
 
 #dark-mode-link
   @extend %floater

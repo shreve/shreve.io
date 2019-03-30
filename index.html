@@ -5,11 +5,17 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
 ---
 
 <header>
-  <h1>Jacob Evan Shreve</h1>
+  <h1 class="flex-title">
+    <span class="rigid">Jacob</span>
+    <span class="flex-title__elbow">Evan</span>
+    <span class="ridid">Shreve</span>
+  </h1>
   <h2 class="flex-title">
     <span class="rigid">Aspiring Human</span>
     <span class="flex-title__elbow amp">&</span>
-    <span class="rigid">Computer Wizard</span></h2>
+    <span class="rigid">Computer Wizard</span>
+  </h2>
+  <img class="hero-image" src="/img/1-800-jake-wins.png"/>
 </header>
 <article>
   <p>
@@ -72,7 +78,7 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
 
   <h3>Buzzwords</h3>
   <section class="row-2">
-    <div class="col">
+    <div class="col col-inner">
       <ul>
         <li>ruby on rails</li>
         <li>rust</li>
@@ -113,7 +119,7 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
   </blockquote>
 </article>
 
-<script>
+<script data-turbolinks-permanent>
  let yearsSince = (year) => {
    let current = (new Date()).getYear() + 1900
    return current - parseInt(year);
