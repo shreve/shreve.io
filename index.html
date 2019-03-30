@@ -20,8 +20,8 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
 <article>
   <p>
     Hey there! My name's Jacob. I live in Ypsilanti, MI, and I'm a technology consultant and computer science student.
-    I've been programming for about <time class="years-since" datetime="2008">10</time> years and
-    using Ruby on Rails for about <time class="years-since" datetime="2012">6</time>. I'm currently
+    I've been programming for about <time class="years-since" datetime="2008">11</time> years and
+    using Ruby on Rails for about <time class="years-since" datetime="2012">7</time>. I'm currently
     unavailable for new work, but check back in mid-2020 &mdash; I should be graduated by then.
   </p>
   <p>
@@ -99,7 +99,7 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
   <section>
     <h3>Blog Posts</h3>
     <ul class="blog-post-list">
-      {% assign posts = site.posts | sort: 'date' | reverse | limit: 5 %}
+      {% assign posts = site.posts | sort: 'date' | reverse %}
       {% for post in posts | limit: 5 %}
       <li class="blog-post">
         <a href="{{ post.url }}">{{ post.title }}</a>
@@ -113,7 +113,7 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
 
       <li class="blog-post">
         <a href="/posts">See the full list &#8594;</a>
-        <span>&nbsp;</span>
+        <span><time datetime="0"></time></span>
       </li>
     </ul>
   </section>
@@ -133,29 +133,4 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
  for (let element of document.getElementsByClassName('years-since')) {
    element.innerText = yearsSince(element.dateTime);
  }
-
- let sortVal = (post) => {
-   return post.getElementsByTagName('time')[0].getAttribute('datetime');
- }
-
- let sortFunc = (post1, post2) => {
-   if (sortVal(post1) < sortVal(post2)) {
-     return 1;
-   } else if (sortVal(post1) > sortVal(post2)) {
-     return -1;
-   } else {
-     return 0;
-   }
- }
-
- let sortPosts = (posts) => {
-   posts = Array.prototype.slice.call(posts).sort(sortFunc);
-   let list = document.getElementsByClassName('blog-post-list')[0];
-
-   for (let element of posts) {
-     list.appendChild(element);
-   }
- }
-
- sortPosts(document.getElementsByClassName('blog-post'))
 </script>
