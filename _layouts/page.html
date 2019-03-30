@@ -32,7 +32,23 @@
   </head>
   <body class="{{ page.layout }} dark-mode">
     {% if page.url != '/' %}<a class="logo" href="/">
-    <img src="/img/1-800-jake-wins-small.png" alt="JS" /></a>{% endif %}
+    <img data-src="/img/1-800-jake-wins-small.png" alt="JS"
+         class="img-loading"
+         src="data:image/png;base64,
+                   iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                   AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAABRNzI/Ly1QNzQy
+                   HhorGRZkSUfHjY7LjI3JjY9/Y2fJlpZyXWBhUk+ui43JjY5qW1xaQDpGLig6JiExHxwkGBYlGhhz
+                   WlVZPjs3IyAtHBkUDAsZERE1IR02Ih+ifYB7WlsOCAgpHh0uHRppSEYMBwYeFhRgRkRxUE+Xb3Bs
+                   T1AcExIvJCLKj5Crd3dSNjeCUlfLjI6+goOHW2CdX2jKj5Gxe3yPZ2t5YGSSaW7LmJjIk5Ojf4OC
+                   ZWlvW17AkJC2iY2Wd3t6ZWhrW11gV1Y1Ih8vHxsdEhCHZWZFMDASCwrWoqPToqW0h4qCY2YkGRml
+                   eHhxVlk6LCuoeHiSamyHYmOHZGdRPT6ndneXa269homXcXZyWFudb3Ooen2Ta3G7iY2sgof////8
+                   p7IEAAAARXRSTlMAAAAAAAAAAAAAAAAAAAAAAA502OmtOwELlPngUUX1///FE1b62h8c1f//yRIf
+                   3tUdQfW8EEv5/7QuGsv/2jRM1tOLMwHRr0iWAAAAAWJLR0RiK7kdPAAAAAd0SU1FB+MDHgorHbOD
+                   jZYAAAB2SURBVAjXY2BgFBQSFhEVE2diYJaQlHJ1c5eWYWBgkZXzkFfw9FJUYmBVVvH28fXzV1Vj
+                   YFPXCNDUCgzS1mFg19ULDgkNC9c3YOAwNIqIjIqOMTZh4DQ1izWPi7ew5GLgtrJOSLSxtePhZeDj
+                   t3dwdHJ2EWAAAIcWEpKdb/ycAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTAzLTMwVDEwOjQzOjM2
+                   LTA0OjAwVluvRgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wMy0zMFQxMDo0MzoyOS0wNDowMB3k
+                   Z40AAAAASUVORK5CYII=" /></a>{% endif %}
     <div class="wrapper">
       <div class="content">
         {{ content }}
