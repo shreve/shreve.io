@@ -99,8 +99,8 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
   <section>
     <h3>Blog Posts</h3>
     <ul class="blog-post-list">
-      {% assign posts = site.posts | sort: 'date' | reverse %}
-      {% for post in posts %}
+      {% assign posts = site.posts | sort: 'date' | reverse | limit: 5 %}
+      {% for post in posts | limit: 5 %}
       <li class="blog-post">
         <a href="{{ post.url }}">{{ post.title }}</a>
         {% if post.updated %}
@@ -110,6 +110,11 @@ description: I'm a student at UMich, a lead developer at Wellopp, and someone lo
         {% endif %}
       </li>
       {% endfor %}
+
+      <li class="blog-post">
+        <a href="/posts">See the full list &#8594;</a>
+        <span>&nbsp;</span>
+      </li>
     </ul>
   </section>
 
