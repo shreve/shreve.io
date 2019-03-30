@@ -44,10 +44,11 @@ MzBUMTA6MTA6MDMtMDQ6MDBh0Sj/AAAAAElFTkSuQmCC"/>
 </header>
 <article>
   <p>
-    Hey there! My name's Jacob. I live in Ypsilanti, MI, and I'm a technology consultant and computer science student.
-    I've been programming for about <time class="years-since" datetime="2008">11</time> years and
-    using Ruby on Rails for about <time class="years-since" datetime="2012">7</time>. I'm currently
-    unavailable for new work, but check back in mid-2020 &mdash; I should be graduated by then.
+    Hey there! My name's Jacob. I live in Ypsilanti, MI, and I'm a
+    technology consultant and computer science student.  I've been
+    programming for about 11 years and using Ruby on Rails for about 7. I'm
+    currently unavailable for new work, but check back in mid-2020
+    &mdash; I should be graduated by then.
   </p>
   <p>
     If you'd like to get in touch, you can email me (jacob [at] shreve.io) or tweet me (<a href="https://twitter.com/_shreve">@_shreve</a>).
@@ -148,14 +149,3 @@ MzBUMTA6MTA6MDMtMDQ6MDBh0Sj/AAAAAElFTkSuQmCC"/>
     <cite>Tim McIlrath</cite>
   </blockquote>
 </article>
-
-<script data-turbolinks-permanent>
- let yearsSince = (year) => {
-   let current = (new Date()).getYear() + 1900
-   return current - parseInt(year);
- }
-
- for (let element of document.getElementsByClassName('years-since')) {
-   element.innerText = yearsSince(element.dateTime);
- }
-</script>
