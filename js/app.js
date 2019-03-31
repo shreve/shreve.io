@@ -3,11 +3,13 @@ import { initPageLinks } from './page-links.js';
 import { initPosts } from './posts.js';
 import { initImages } from './images.js';
 
-document.addEventListener('turbolinks:load', () => {
+let init = () => {
   initPosts();
   initThemes();
   initPageLinks();
   initImages();
-});
+}
 
-initThemes();
+init();
+
+document.addEventListener('visit', init);
