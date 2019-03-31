@@ -1,7 +1,8 @@
 import { ajax } from './ajax.js';
 
 let initPageLinks = () => {
-  let cache = {};
+  window.pageCache = window.pageCache || {};
+  let history = true;
 
   let scrollTo = (target) => {
     let top = target.getBoundingClientRect().top;
@@ -24,18 +25,21 @@ let initPageLinks = () => {
   let ajaxCallback = (event) => {
     event.preventDefault();
     let target = new URL(event.target.href || event.target.parentNode.href)
+    safeVisit(target)
+  }
 
-    if (!cache.hasOwnProperty(target.pathname)) {
-      save(target.pathname);
+  let safeVisit = (url) => {
+    if (!pageCache.hasOwnProperty(url.pathname)) {
+      save(url.pathname);
     } else {
-      visit(target.pathname);
+      visit(url.pathname);
     }
   }
 
-  let saveView = (url, el) => {
-    cache[url] = {
+  let writeToCache = (url, el) => {
+    pageCache[url] = {
       title: el.querySelector('title').innerText,
-      body: el.children[1].cloneNode(true)
+      body: el.querySelector('body').cloneNode(true)
     }
   }
 
@@ -45,19 +49,20 @@ let initPageLinks = () => {
            success: (data) => {
              let el = document.createElement('html');
              el.innerHTML = data;
-             saveView(url, el);
+             writeToCache(url, el);
              visit(url);
            }
          });
   }
 
   let visit = (url) => {
-    let page = cache[url];
+    let page = pageCache[url];
 
     document.title = page.title;
     document.querySelector('body').outerHTML = page.body.outerHTML;
     window.scrollTo(0, 0);
-    window.history.pushState({ url: url }, page.title, url);
+    if (history)
+      window.history.pushState({ url: url }, page.title, url);
 
     document.dispatchEvent(new Event('visit'));
   }
@@ -87,6 +92,14 @@ let initPageLinks = () => {
 
   if (window.location.hash.length > 0) {
     scrollTo(elementWithName(window.location.hash));
+  }
+
+  writeToCache(window.location.pathname, document.children[0]);
+
+  window.onpopstate = (event) => {
+    history = false;
+    safeVisit(window.location);
+    history = true;
   }
 }
 
