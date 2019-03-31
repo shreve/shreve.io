@@ -3,12 +3,12 @@ let initImages = () => {
     let preload = new Image();
     preload.onload = () => {
       image.src = preload.src;
-      image.classList.remove('img-loading');
+      image.classList.remove('img-to-load');
     }
     preload.src = image.getAttribute('data-src');
   }
 
-  for (let image of document.getElementsByClassName('img-loading')) {
+  for (let image of document.getElementsByClassName('img-to-load')) {
     preloadImage(image);
   }
 };

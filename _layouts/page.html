@@ -21,8 +21,8 @@
     <title> {{ page.title }} :: Jacob Evan Shreve</title>
     <meta name="description" content="{{ page.description }}">
     <script>
-     if (window.location.protocol != "https:" && window.location.hostname != "localhost") {
-       window.location.protocol = "https:" }
+     if (window.location.protocol !== "https:" && window.location.hostname === "shreve.io")
+       window.location.protocol = "https:";
     </script>
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <link rel="stylesheet" href="/css/main.css" />
@@ -33,7 +33,7 @@
   <body class="{{ page.layout }} dark-mode">
     {% if page.url != '/' %}<a class="logo" href="/">
     <img data-src="/img/1-800-jake-wins-small.png" alt="JS"
-         class="img-loading"
+         class="img-to-load"
          src="data:image/png;base64,
                    iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAABRNzI/Ly1QNzQy
