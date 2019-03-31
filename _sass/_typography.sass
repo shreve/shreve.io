@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6
   @extend %display-font
   font-weight: bold
   margin-top: 1em
-  margin-bottom: 1em
+  margin-bottom: 0.5em
 
   span
     @extend %display-font
@@ -33,9 +33,13 @@ h1, h2
 
 h1
   font-size: 5rem
+  @media only screen and (max-width: 500px)
+    font-size: 3rem
 
 h2
   font-size: 2.5rem
+  @media only screen and (max-width: 500px)
+    font-size: 1.5rem
 
 h3
   font-size: 2rem
