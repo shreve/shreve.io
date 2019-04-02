@@ -1,5 +1,6 @@
 let initFlexText = () => {
   let flexTexts = [];
+  let timeout;
 
   let flexText = el => {
     const ratio = el.parentNode.clientWidth / el.scrollWidth;
@@ -10,13 +11,19 @@ let initFlexText = () => {
     el.style.cssText = `font-size: ${current * ratio}px`;
   }
 
+  let flexAllTexts = () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      for (let el of flexTexts) { flexText(el); }
+    }, 10);
+  }
+
   for (let el of document.getElementsByClassName('flex-text')) {
     el.classList.add('flexing');
     flexTexts.push(el);
     flexText(el);
   }
 
-  let flexAllTexts = () => { for (let el of flexTexts) { flexText(el); } }
   window.addEventListener('resize', flexAllTexts);
 }
 
