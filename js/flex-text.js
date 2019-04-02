@@ -2,12 +2,12 @@ let initFlexText = () => {
   let flexTexts = [];
 
   let flexText = el => {
-    const width = el.scrollWidth;
-    const parent = el.parentNode.clientWidth;
+    const ratio = el.parentNode.clientWidth / el.scrollWidth;
+    if (Math.abs(ratio - 1.0) < 0.05) { return; }
+
     const style = window.getComputedStyle(el);
     const current = parseInt(style.getPropertyValue('font-size'));
-    console.log((current *parent)/ width);
-    el.style.cssText = `font-size: ${current * (parent / width)}px`;
+    el.style.cssText = `font-size: ${current * ratio}px`;
   }
 
   for (let el of document.getElementsByClassName('flex-text')) {
