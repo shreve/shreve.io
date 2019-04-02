@@ -22,7 +22,7 @@ let initThemes = () => {
   let darkLink = document.createElement('a');
   darkLink.id = "dark-mode-link"
   darkLink.title = "Dark Mode";
-  darkLink.text = "🌞";
+  updateDisplay();
   darkLink.addEventListener('click', modeToggle);
   document.body.insertBefore(darkLink, document.body.children[0]);
 
