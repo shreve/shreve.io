@@ -1,6 +1,6 @@
 ---
 title: Send me an encrypted message
-permalink: /message-me
+permalink: /encrypt
 description: Use this tool to encrypt a message so that only I can read it.
 ---
 
@@ -54,7 +54,6 @@ description: Use this tool to encrypt a message so that only I can read it.
      });
 
    let start = () => {
-     if (location.pathname !== '/message-me') { return; }
      input.disabled = false;
      input.innerText = "";
      form.classList.remove('hidden');
@@ -80,5 +79,5 @@ description: Use this tool to encrypt a message so that only I can read it.
 </script>
 
 <p>
-  You can see the source code for this file on <a href="https://github.com/shreve/shreve.github.io/blob/master/message-me.html">my GitHub</a>.
+  You can see the source code for this file on <a href="https://github.com/shreve/shreve.github.io/blob/master/encrypt.html">my GitHub</a>.
 </p>
