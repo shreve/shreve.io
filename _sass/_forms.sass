@@ -1,11 +1,11 @@
-input
-  &[type="text"],
-  &[type="number"],
-  &[type="phone"]
-    padding: 0.1em 1em 0.4em
-    color: #fff
-    background-color: #151f29
-    border: 1px solid #304251
+input,
+textarea
+  @extend %embed-background
+  @extend %border-color
+  @extend %text-color
+  padding: 0.4em 0.8em 0.5em
+  color: #fff
+  border: 1px solid #304251
 
 .currency-input
   &:before
@@ -20,20 +20,19 @@ input
     padding-right: 0.5em
     max-width: 120px
 
-
 .input-group
+  margin-bottom: 3em
+
   *
-    display: inline-block
-    margin-right: -2px
+    width: 100%
+  label
+    display: block
+  input, textarea, select
+    display: block
 
-  >:first-child,
-  >:first-child input
-    border-top-left-radius: 0.5em
-    border-bottom-left-radius: 0.5em
-
-  >:last-child
-    border-top-right-radius: 0.5em
-    border-bottom-right-radius: 0.5em
+.form-group
+  margin: 0 auto
+  padding: 0 1em 0.5em
 
 button
   background-color: #151f29

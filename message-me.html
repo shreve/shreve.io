@@ -1,0 +1,76 @@
+---
+title: Send me an encrypted message
+permalink: /message-me
+description: Use this tool to encrypt a message so that only I can read it.
+---
+
+<h1>Send me an encrypted message</h1>
+
+<noscript>This tool requires the use of javascript. If you prefer to not use javascript, you can use my public PGP key located at <a href="/key.asc">/key.asc</a>.</noscript>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openpgp/4.5.5/openpgp.min.js"></script>
+
+
+<script>
+ document.write("<p id='loading-message'>The tool is loading...</p>");
+</script>
+<div id="encryption-form" class="hidden">
+  <p>
+    You can use this tool to encrypt a message which only I will be able to decrypt.
+    It uses <a href="https://openpgpjs.org/">OpenPGP.js</a> and <a href="/key.asc">my public key</a>.
+  </p>
+
+  <p>
+    <div class="form-group">
+      <div class="input-group">
+        <label for="name">From</label>
+        <input type="text" name="name"/>
+      </div>
+
+      <div class="input-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="input" disabled>Public key is not loaded. You cannot use this feature yet.</textarea>
+      </div>
+
+      <label>Encrypted Message</label>
+      <pre id="output" title="Click here to copy to clipboard">Your encrypted message will appear here.</pre>
+    </div>
+  </p>
+</div>
+
+<script type="text/javascript">
+ let input = document.getElementById('input');
+ let output = document.getElementById('output');
+ let name = document.querySelector('input[name="name"]');
+ let pubkey = "";
+ fetch("/key.asc")
+   .then(resp => {
+     resp.text().then(async (text) => {
+       pubkey = (await openpgp.key.readArmored(text)).keys;
+       input.disabled = false;
+       input.innerText = "";
+       document.getElementById('loading-message').remove();
+       document.getElementById('encryption-form').classList.remove('hidden');
+     });
+   });
+
+ input.addEventListener('keyup', () => {
+   let message = `From: "${name.value}"\nMessage: ${input.value}`
+   let options = {
+     message: openpgp.message.fromText(message),
+     publicKeys: pubkey
+   };
+
+   openpgp.encrypt(options).then(ciphertext => {
+     output.innerText = ciphertext.data;
+   });
+ });
+
+ output.addEventListener('click', () => {
+   clipboard.copy(output.innerText);
+ });
+</script>
+
+<p>
+  You can see the source code for this file on <a href="https://github.com/shreve/shreve.github.io/blob/master/message-me.html">my GitHub</a>.
+</p>

@@ -5,16 +5,21 @@ $breakpoint: 50em
     @content
 
 %body-font
-  font-family: Georgia
+  font-family: SF Pro Text, Georgia
+  letter-spacing: -0.5px
 
 %display-font
-  font-family: "futura-pt", Futura, "Avenir Next LT Pro", Helvetica, Arial
+  font-family: SF Pro Display, 'futura-pt', Futura, 'Avenir Next LT Pro', Helvetica, Arial
 
 %fancy-font
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif
 
+%mono-font
+  font-family: Fira Mono, Monaco, monospace
+
 %subtext
   @extend %subtext-color
+  @extend %body-font
   font-style: italic
 
 .wf-loading
@@ -98,18 +103,18 @@ p, li, a, cite, time, input, textarea, dd, .content-element
 
 p, ol, ul, .content-element, dd
   width: 100%
+  font-size: 1.5rem
   padding: 0 1em 0.5em
 
 ol
   list-style-type: decimal
-  padding-left: 3em
 
 blockquote
   p
-    quotes: "“" "”" "‘" "’"
+    quotes: '\201C' '\201D' '\2018' '\2019'
 
     &::before, &::after
-      content: '“'
+      content: '\201C'
       font-size: 2.5rem
       display: inline
 
@@ -168,11 +173,12 @@ cite
 
 cite::before
   display: inline-block
-  content: '—'
+  content: '\2014'
 
 %code-wrapper
   @extend %embed-background
   @extend %border-color
+  @extend %mono-font
   border: 1px solid
   border-radius: 4px
   font-size: 1.2rem
@@ -194,7 +200,6 @@ pre code
   padding: 0
 
 code, code *
-  font-family: Fira Mono, Monaco, monospace
   line-height: 1.2
 
 .highlight span
