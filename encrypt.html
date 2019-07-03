@@ -31,6 +31,8 @@ description: Use this tool to encrypt a message so that only I can read it.
 
       <label>Encrypted Message</label>
       <pre id="output" title="Click here to copy to clipboard">Your encrypted message will appear here.</pre>
+
+      <a download="encrypted-message.eml" id="send-link" class="button">Email Link</a>
     </div>
   </p>
 </div>
@@ -41,6 +43,7 @@ description: Use this tool to encrypt a message so that only I can read it.
    let output = document.getElementById('output');
    let name = document.querySelector('input[name="name"]');
    let form = document.getElementById('encryption-form');
+   let send = document.getElementById('send-link');
    let pubkey = "";
 
    try { document.getElementById('loading-message').innerText = "This tool is loading..."; } catch {}
@@ -74,6 +77,10 @@ description: Use this tool to encrypt a message so that only I can read it.
 
    output.addEventListener('click', () => {
      clipboard.copy(output.innerText);
+   });
+
+   send.addEventListener('click', () => {
+     send.href = "mailto:Jacob Shreve<jacob@shreve.io>?body=" + encodeURI(output.innerText);
    });
  })();
 </script>

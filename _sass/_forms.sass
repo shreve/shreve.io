@@ -34,8 +34,10 @@ textarea
   margin: 0 auto
   padding: 0 1em 0.5em
 
+.button,
 button
-  background-color: #151f29
-  border: 1px solid #304251
-  color: #fff
+  @extend %border-color
+  @extend %button-color
+  border: 1px solid
   padding: 0.72em 1em 0.65em
+  cursor: pointer
