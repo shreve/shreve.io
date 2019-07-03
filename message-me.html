@@ -10,10 +10,7 @@ description: Use this tool to encrypt a message so that only I can read it.
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openpgp/4.5.5/openpgp.min.js"></script>
 
-
-<script>
- document.write("<p id='loading-message'>The tool is loading...</p>");
-</script>
+<p id="loading-message"></p>
 <div id="encryption-form" class="hidden">
   <p>
     You can use this tool to encrypt a message which only I will be able to decrypt.
@@ -39,36 +36,47 @@ description: Use this tool to encrypt a message so that only I can read it.
 </div>
 
 <script type="text/javascript">
- let input = document.getElementById('input');
- let output = document.getElementById('output');
- let name = document.querySelector('input[name="name"]');
- let pubkey = "";
- fetch("/key.asc")
-   .then(resp => {
-     resp.text().then(async (text) => {
-       pubkey = (await openpgp.key.readArmored(text)).keys;
-       input.disabled = false;
-       input.innerText = "";
-       document.getElementById('loading-message').remove();
-       document.getElementById('encryption-form').classList.remove('hidden');
+ (() => {
+   let input = document.getElementById('input');
+   let output = document.getElementById('output');
+   let name = document.querySelector('input[name="name"]');
+   let form = document.getElementById('encryption-form');
+   let pubkey = "";
+
+   try { document.getElementById('loading-message').innerText = "This tool is loading..."; } catch {}
+
+   fetch("/key.asc")
+     .then(resp => {
+       resp.text().then(async (text) => {
+         pubkey = (await openpgp.key.readArmored(text)).keys;
+         start();
+       });
+     });
+
+   let start = () => {
+     if (location.pathname !== '/message-me') { return; }
+     input.disabled = false;
+     input.innerText = "";
+     form.classList.remove('hidden');
+     try { document.getElementById('loading-message').remove(); } catch {}
+   };
+
+   input.addEventListener('keyup', () => {
+     let message = `From: "${name.value}"\nMessage: ${input.value}`
+     let options = {
+       message: openpgp.message.fromText(message),
+       publicKeys: pubkey
+     };
+
+     openpgp.encrypt(options).then(ciphertext => {
+       output.innerText = ciphertext.data;
      });
    });
 
- input.addEventListener('keyup', () => {
-   let message = `From: "${name.value}"\nMessage: ${input.value}`
-   let options = {
-     message: openpgp.message.fromText(message),
-     publicKeys: pubkey
-   };
-
-   openpgp.encrypt(options).then(ciphertext => {
-     output.innerText = ciphertext.data;
+   output.addEventListener('click', () => {
+     clipboard.copy(output.innerText);
    });
- });
-
- output.addEventListener('click', () => {
-   clipboard.copy(output.innerText);
- });
+ })();
 </script>
 
 <p>

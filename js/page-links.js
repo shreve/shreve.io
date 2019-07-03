@@ -61,10 +61,26 @@ let initPageLinks = () => {
     document.title = page.title;
     document.querySelector('body').outerHTML = page.body.outerHTML;
     window.scrollTo(0, 0);
+    evalJavascript();
     if (history)
       window.history.pushState({ url: url }, page.title, url);
 
     document.dispatchEvent(new Event('visit'));
+  }
+
+  let evalJavascript = () => {
+    let scripts = document.querySelectorAll("body script");
+    for (let i = 0; i < scripts.length; i++) {
+      let script = scripts[i];
+      let new_script = document.createElement('script');
+      for (let j = 0; j < script.attributes.length; j++) {
+        let pair = script.attributes.item(j);
+        new_script.setAttribute(pair.nodeName, pair.nodeValue);
+      }
+      new_script.innerHTML = script.innerHTML;
+      script.parentNode.replaceChild(new_script, script);
+      script.remove();
+    }
   }
 
   let addListeners = () => {

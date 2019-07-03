@@ -15,6 +15,8 @@ let init = () => {
   initFlexText();
 }
 
-init();
-
 document.addEventListener('visit', init);
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.dispatchEvent(new Event('visit'));
+});
