@@ -13,26 +13,42 @@ description: Use this tool to encrypt a message so that only I can read it.
 <p id="loading-message"></p>
 <div id="encryption-form" class="hidden">
   <p>
-    You can use this tool to encrypt a message which only I will be able to decrypt.
+    You can use this tool to encrypt a file or message which only I will be able to decrypt.
     It uses <a href="https://openpgpjs.org/">OpenPGP.js</a> and <a href="/key.asc">my public key</a>.
   </p>
 
+  <h3>File Encrypt</h3>
   <p>
+    Select a file to download an encrypted copy you can send to me.
+    <div class="form-group">
+      <div class="input-group">
+        <label for="file">Encrypt File</label>
+        <div class="file-input">
+          <label>Select a file to encrypt.</label>
+          <input name="file" type="file" id="file-input"/>
+        </div>
+      </div>
+    </div>
+  </p>
+
+  <h3>Message Encrypt</h3>
+  <p>
+    Use this form to generate an encrypted message. Click the output to copy, or press the link to open it as an email draft.
     <div class="form-group">
       <div class="input-group">
         <label for="name">From</label>
-        <input type="text" name="name"/>
+        <input type="text" name="name" placeholder="Optional"/>
       </div>
 
       <div class="input-group">
         <label for="message">Message</label>
-        <textarea name="message" id="input" disabled>Public key is not loaded. You cannot use this feature yet.</textarea>
+        <textarea name="message" id="input" placeholder="Enter a message to encrypt." disabled>Public key is not loaded. You cannot use this feature yet.</textarea>
       </div>
 
       <label>Encrypted Message</label>
       <pre id="output" title="Click here to copy to clipboard">Your encrypted message will appear here.</pre>
 
-      <a download="encrypted-message.eml" id="send-link" class="button">Email Link</a>
+      <a id="send-link" class="button">Email Link</a>
     </div>
   </p>
 </div>
@@ -40,6 +56,7 @@ description: Use this tool to encrypt a message so that only I can read it.
 <script type="text/javascript">
  (() => {
    let input = document.getElementById('input');
+   let file = document.getElementById('file-input');
    let output = document.getElementById('output');
    let name = document.querySelector('input[name="name"]');
    let form = document.getElementById('encryption-form');
@@ -63,8 +80,16 @@ description: Use this tool to encrypt a message so that only I can read it.
      try { document.getElementById('loading-message').remove(); } catch {}
    };
 
+   let encrypt = async (plaintext) => {
+     let options = {
+       message: openpgp.message.fromBinary(plaintext),
+       publicKeys: pubkey
+     };
+     return await openpgp.encrypt(options);
+   };
+
    input.addEventListener('keyup', () => {
-     let message = `From: "${name.value}"\nMessage: ${input.value}`
+     let message = `From: ${name.value}\nMessage: ${input.value}`
      let options = {
        message: openpgp.message.fromText(message),
        publicKeys: pubkey
@@ -73,6 +98,22 @@ description: Use this tool to encrypt a message so that only I can read it.
      openpgp.encrypt(options).then(ciphertext => {
        output.innerText = ciphertext.data;
      });
+   });
+
+   file.addEventListener('change', () => {
+     let reader = new FileReader;
+     reader.readAsArrayBuffer(file.files[0]);
+
+     reader.onloadend = async () => {
+       let result = await encrypt(new Uint8Array(reader.result));
+       let link = document.createElement('a');
+       link.href = "data:application/octet-stream;base64," + encodeURI(btoa(result.data));
+       link.setAttribute("download", file.files[0].name + '.gpg');
+       link.click();
+       let click = document.createEvent("MouseEvents");
+       click.initEvent("click", false, true);
+       link.dispatchEvent(click);
+     }
    });
 
    output.addEventListener('click', () => {
@@ -86,5 +127,5 @@ description: Use this tool to encrypt a message so that only I can read it.
 </script>
 
 <p>
-  You can see the source code for this file on <a href="https://github.com/shreve/shreve.github.io/blob/master/encrypt.html">my GitHub</a>.
+  You can see the source code for this tool on <a href="https://github.com/shreve/shreve.github.io/blob/master/encrypt.html">my GitHub</a>.
 </p>
