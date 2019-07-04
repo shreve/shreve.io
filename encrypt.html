@@ -88,7 +88,7 @@ description: Use this tool to encrypt a message so that only I can read it.
      return await openpgp.encrypt(options);
    };
 
-   input.addEventListener('keyup', () => {
+   let update_ciphertext = () => {
      let message = `From: ${name.value}\nMessage: ${input.value}`
      let options = {
        message: openpgp.message.fromText(message),
@@ -98,7 +98,10 @@ description: Use this tool to encrypt a message so that only I can read it.
      openpgp.encrypt(options).then(ciphertext => {
        output.innerText = ciphertext.data;
      });
-   });
+   };
+
+   input.addEventListener('keyup', update_ciphertext);
+   name.addEventListener('keyup', update_ciphertext);
 
    file.addEventListener('change', () => {
      let reader = new FileReader;
