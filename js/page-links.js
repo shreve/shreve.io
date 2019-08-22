@@ -46,11 +46,15 @@ let initPageLinks = () => {
   let save = (url) => {
     ajax({ url: url,
            method: 'GET',
-           success: (data) => {
-             let el = document.createElement('html');
-             el.innerHTML = data;
-             writeToCache(url, el);
-             visit(url);
+           success: (data, xhr) => {
+             if (xhr.getResponseHeader('content-type') === "text/html; charset=utf-8") {
+               let el = document.createElement('html');
+               el.innerHTML = data;
+               writeToCache(url, el);
+               visit(url);
+             } else {
+               window.location = url;
+             }
            }
          });
   }
