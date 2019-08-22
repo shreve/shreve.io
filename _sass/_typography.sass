@@ -236,3 +236,12 @@ code, code *
   color: red
   font-size: 1.35em
   vertical-align: top
+  display: inline-block
+  animation: heartbeat 0.75s ease-in infinite
+
+@keyframes heartbeat
+  0%, 100%
+    transform: scale(0.9)
+
+  30%, 50%
+    transform: scale(1.3)
