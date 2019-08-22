@@ -234,14 +234,17 @@ code, code *
 
 .heart
   color: red
-  font-size: 1.35em
+  font-size: 1em
   vertical-align: top
   display: inline-block
   animation: heartbeat 0.75s ease-in infinite
+  position: relative
+  top: 0.1em
+  font-style: normal
 
 @keyframes heartbeat
   0%, 100%
-    transform: scale(0.9)
+    transform: scale(1)
 
-  30%, 50%
-    transform: scale(1.3)
+  20%, 50%
+    transform: scale(1.35)
