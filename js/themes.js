@@ -3,10 +3,10 @@ let initThemes = () => {
 
   let updateDisplay = () => {
     if (document.body.classList.contains('dark-mode')) {
-      darkLink.text = "🌞";
+      darkLink.text = "🌜";
       darkLink.title = "Switch on Light Mode";
     } else {
-      darkLink.text = "🌜";
+      darkLink.text = "🌞";
       darkLink.title = "Switch on Dark Mode";
     }
   }
