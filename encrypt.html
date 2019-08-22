@@ -55,7 +55,7 @@ description: Use this tool to encrypt a message so that only I can read it.
       <label>Encrypted Message</label>
       <pre id="output" title="Click here to copy to clipboard">Your encrypted message will appear here.</pre>
 
-      <a id="send-link" class="button">Email Link</a>
+      <button id="send-link">Email Link</button>
     </div>
   </p>
 </div>
@@ -131,7 +131,7 @@ description: Use this tool to encrypt a message so that only I can read it.
    });
 
    send.addEventListener('click', () => {
-     send.href = "mailto:Jacob Shreve<jacob@shreve.io>?body=" + encodeURI(output.innerText);
+     window.open("mailto:Jacob Shreve<jacob@shreve.io>?body=" + encodeURI(output.innerText), '_blank')
    });
  })();
 </script>
