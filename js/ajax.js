@@ -3,7 +3,7 @@ let ajax = (opts) => {
   http.open(opts.method, opts.url);
   http.onreadystatechange = () => {
     if (http.readyState === 4 && http.status === 200) {
-      opts.success(http.responseText);
+      opts.success(http.responseText, http);
     }
   }
   http.send();
