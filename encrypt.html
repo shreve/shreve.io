@@ -15,7 +15,6 @@ description: Use this tool to encrypt a message so that only I can read it.
 
 <noscript>This tool requires the use of javascript. If you prefer to not use javascript, you can use my public PGP key located at <a href="/key.asc">/key.asc</a>.</noscript>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openpgp/4.5.5/openpgp.min.js"></script>
 
 <p id="loading-message"></p>
 <div id="encryption-form" class="hidden">
@@ -72,13 +71,17 @@ description: Use this tool to encrypt a message so that only I can read it.
 
    try { document.getElementById('loading-message').innerText = "This tool is loading..."; } catch {}
 
-   fetch("/key.asc")
-     .then(resp => {
-       resp.text().then(async (text) => {
-         pubkey = (await openpgp.key.readArmored(text)).keys;
-         start();
+   window.startEncrypt = () => {
+     fetch("/key.asc")
+       .then(resp => {
+         resp.text().then(async (text) => {
+           pubkey = (await openpgp.key.readArmored(text)).keys;
+           start();
+         });
        });
-     });
+   }
+
+   startEncrypt();
 
    let start = () => {
      input.disabled = false;
@@ -135,6 +138,7 @@ description: Use this tool to encrypt a message so that only I can read it.
    });
  })();
 </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openpgp/4.5.5/openpgp.min.js" onload="startEncrypt()"></script>
 
 <h3>Why is this a thing?</h3>
 
