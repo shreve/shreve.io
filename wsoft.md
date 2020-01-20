@@ -4,9 +4,9 @@ permalink: /wsoft
 ---
 
 <section>
-  <h1>Development Blog</h1>
+  <h1>WolverineSoft Devblog</h1>
 
-  <p>This blog details my process of working for WolverineSoft Studios during the winter 2020 semester.</p>
+  <p>This blog details my process of working for <a href="https://wolverinesoft-studio.itch.io/">WolverineSoft Studio</a> during the winter 2020 semester.</p>
   <ul class="blog-post-list">
     {% assign posts = site.wsoft | sort: 'date' | reverse %}
     {% for post in posts %}
