@@ -1,6 +1,6 @@
+encoding: utf-8
 exclude: [Gemfile, Gemfile.lock, CNAME, readme.md]
 time_zone: America/Detroit
-encoding: utf-8
 show_drafts: true
 permalink: /:year/:month/:day/:title
 repository: shreve/shreve.github.io
@@ -14,6 +14,10 @@ collections:
     permalink: /:collection/:title
 
   recipes:
+    output: true
+    permalink: /:collection/:title
+
+  wsoft:
     output: true
     permalink: /:collection/:title
 
@@ -33,5 +37,11 @@ defaults:
   -
     scope:
       type: 'posts'
+    values:
+      layout: post
+
+  -
+    scope:
+      type: 'wsoft'
     values:
       layout: post
