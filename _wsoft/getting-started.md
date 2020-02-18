@@ -31,9 +31,12 @@ public class Slider : MonoBehaviour
 }
 ```
 
+<a href="https://i.imgur.com/Ht6IYVL.gif">
 <img
 alt="A demo of the slider in action"
 src="https://i.imgur.com/Ht6IYVL.gif" />
+</a>
+
 
 ## Discord Bot
 
@@ -48,10 +51,11 @@ My idea for an MVP was to create a script that would start up the bot, post a pa
 
 This command would create a post in the announcements channel that looks something like this:
 
+<a href="https://i.imgur.com/ViUnT3u.png">
 <img
 alt="A prototype post during bot development"
-src="https://i.imgur.com/ViUnT3u.png"
-/>
+src="https://i.imgur.com/ViUnT3u.png" />
+</a>
 
 The interesting thing about developing this tool is that you can't submit a complete post with reactions and every call is asynchronous. You need to perform the message post, then on success post one reaction, then on success post the next one, and so on. To help this manual chaining from getting too deep, I wrote a method called `reactChain` which accepts a message and a list of reactions to post to it. It recursively handles the posting and waiting on promises, then returns a promise you can treat the method call like just another link in a larger chain.
 
@@ -76,10 +80,11 @@ After speaking with Nico, we decided to continue this approach for the time bein
 
 The first announcement from the Reminder Bot was just posted earlier tonight!
 
+<a href="https://i.imgur.com/M0AU1w0.png">
 <img
 alt="ReminderBot's first announcement"
-src="https://i.imgur.com/M0AU1w0.png"
-/>
+src="https://i.imgur.com/M0AU1w0.png" />
+</a>
 
 ## Playtest Data Collector Prototype
 
@@ -99,10 +104,11 @@ I tried with little success to convert the ideas into a custom editor on a monob
 
 This finally got me the result I was looking for. Here it is in all it's glory:
 
+<a href="https://i.imgur.com/JTsBJki.gif">
 <img
 alt="The first iteration of the playtest panel in action"
-src="https://i.imgur.com/JTsBJki.gif"
-/>
+src="https://i.imgur.com/JTsBJki.gif" />
+</a>
 
 Unfortunately, this relationship is brittle. Previewing the game with this panel open breaks it. Unity also occasionally refuses to run the renderer because it's inside the `Editor/` folder, even though it's in there 100% of the time.
 
@@ -112,10 +118,11 @@ I've been informed that the Handles API may help me more reliably draw on the sc
 
 I lost some time this sprint at the very beginning getting up and running. I completed 494 entirely on my Linux machine, so I expected to be able to do the same thing here. The thing I wasn't expecting was the complication of the external audio engine, Wwise. When I got the project opened in Unity, all I saw was a bunch of errors related to unknown types that all led back to Wwise.
 
+<a href="https://i.imgur.com/duEI72r.png">
 <img
 alt="Wwise without an OS-specific Wwise installation"
-src="https://i.imgur.com/duEI72r.png"
-/>
+src="https://i.imgur.com/duEI72r.png" />
+</a>
 
 I realized there were some OS-specific configurations available, but only macOS and Windows were present. I tried for a few hours to remedy this, but couldn't figure it out. It seemed like Linux support was only experimental at best and not something I should really bother with trying.
 
