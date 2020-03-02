@@ -11,7 +11,9 @@ let initPageLinks = () => {
 
   let elementWithName = (name) => {
     if (name[0] === '#') name = name.slice(1);
-    return document.querySelector(`[name="${name}"]`);
+    let res = document.querySelector(`[name="${name}"]`);
+    if (!res) res = document.querySelector(`[id="${name}"]`);
+    return res;
   };
 
   let scrollCallback = (event) => {
