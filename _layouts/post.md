@@ -24,15 +24,25 @@ permalink: page.url
     </span>
     <br>
     {% if page.tags != empty %}
+      <span>
       <ul class="tags" itemprop="keywords">
         {% for tag in page.tags %}
         <li>{{ tag }}</li>
         {% endfor %}
       </ul>
       </span>
+      <br>
+    {% endif %}
+
+    {% assign time = content | split: ' ' | size | divided_by: 350.0 %}
+    {% if time < 1 %}
+    <span>About a {{ time | times: 6 | round | times: 10 }} second read</span>
+    {% else %}
+    <span>About a {{ time | round }} minute read</span>
     {% endif %}
   </div>
 </header>
+
 
 <div itemprop="articleBody text">{{ content }}</div>
 </article>
