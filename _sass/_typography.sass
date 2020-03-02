@@ -91,29 +91,34 @@ header *
   text-align: center
 
 header
-  .timestamps, .tags
+  span
     @extend %subtext-color
     font-size: 1.2rem
 
     *
       font-size: inherit
 
-p, li, a, cite, time, input, textarea, dd, .content-element
+p, li, a, cite, time, input, textarea, dd, .content-element, figure
   @extend %body-font
   line-height: 1.5
   font-size: 1.5rem
   margin-bottom: 1.0em
 
-p, ol, ul, .content-element, dd
+p, ol, ul, .content-element, dd, figure
   width: 100%
   fontr-size: 1.5rem
   padding: 0 1rem 0.5rem
 
-p img
-  position: relative
-  left: 50%
-  transform: translateX(-50%)
-  max-width: 100vw
+p, figure
+  img, video
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    max-width: 100vw
+
+figcaption
+  @extend %subtext
+  text-align: center
 
 ol
   list-style-type: decimal

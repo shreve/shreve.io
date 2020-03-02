@@ -1,0 +1,12 @@
+<figure>
+  {% if include.img %}
+  <a href="{{ include.img }}" title="{{ include.caption }}">
+  <img alt="{{ include.caption }}" src="{{ include.img }}" />
+  </a>
+  {% elsif include.video %}
+  <video controls autoplay loop>
+    <source src="{{ include.video }}" type="video/mp4" />
+  </video>
+  {% endif %}
+  <figcaption>{{ include.caption }}</figcaption>
+</figure>
