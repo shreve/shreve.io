@@ -34,12 +34,16 @@ permalink: page.url
       <br>
     {% endif %}
 
-    {% assign time = content | split: ' ' | size | divided_by: 350.0 %}
+    {% assign time = content | number_of_words | divided_by: 220.0 %}
+    {% assign unit = "minute" %}
     {% if time < 1 %}
-    <span>About a {{ time | times: 6 | round | times: 10 }} second read</span>
+    {% assign time = time | times: 6 | round | times: 10 %}
+    {% assign unit = "second" %}
     {% else %}
-    <span>About a {{ time | round }} minute read</span>
+    {% assign time = time | round %}
     {% endif %}
+
+    <span>About a{% if time == 11 or time == 8 %}n{% endif %} {{ time }} {{ unit}} read</span>
   </div>
 </header>
 
