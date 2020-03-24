@@ -19,8 +19,11 @@ Let's start by talking about what actually did get done.
 
 ### In-Game Menus
 
+(approximately 5 hours)
+
 The menu systems took a big step forward in terms of usability. I made sure they
-linked together well, worked with all inputs, and had consistent aniimations.
+linked together well, worked with all inputs, and had consistent
+aniimations. The input system in particular took a lot of tweaking.
 
 
 {% include figure.html video="https://i.imgur.com/0ngO33K.mp4" caption="It looks
@@ -30,6 +33,8 @@ Based on pod meetings, the next sprint should see some better artwork and
 actual settings be placed into the menus.
 
 ### Automated Builds
+
+(approximately 3 hours)
 
 I was able to deploy the automatic build tool onto the server, and actually get
 the game built. This is a huge step forward in terms of shortening our feedback
@@ -41,6 +46,8 @@ I'm hoping I'll be able to do something with the output, like send an alert to
 Discord if the build fails, or inform people about how many warnings there are.
 
 ### SMTP Server
+
+(approximately 1 hour)
 
 Another task not directly on game development, but will be useful for processes
 around development is to set up outgoing email. Our productivity tools allow you
@@ -58,6 +65,8 @@ DMARC to verify the integrity of our emails and help ensure they'll get through
 email filters.
 
 ### Playtest Data Collector
+
+(approximately 2 hours)
 
 The playtester was just about ready to go, but there wasn't currently any way to
 get the recorded playtests out of a built game. They could only be collected by
@@ -83,6 +92,8 @@ then went to bed. I was able to reschedule my treatment so I only lost 2 days to
 sleep.
 
 ### Teamwork
+
+(approximately 3 hours)
 
 I spent a lot of time this sprint on conflicts based around working as a team. I
 wasted quite a lot of time trying to merge together my work with someone else's,
