@@ -29,6 +29,10 @@ aniimations. The input system in particular took a lot of tweaking.
 {% include figure.html video="https://i.imgur.com/0ngO33K.mp4" caption="It looks
 very similar to last sprint, but feels much better." %}
 
+I also wrote a page on confluence explaining how the various components of the
+menus are interlinked so that anyone else could pick up where I left off on this
+work.
+
 Based on pod meetings, the next sprint should see some better artwork and
 actual settings be placed into the menus.
 
