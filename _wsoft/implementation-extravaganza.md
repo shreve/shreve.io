@@ -25,7 +25,8 @@ and the obvious next step to me was to split up the elements and make them
 animate independently. Unfortunately, the menu wasn't designed with that in
 mind.
 
-// Video of old intro
+{% include figure.html video="https://i.imgur.com/3gt1RRW.mp4" caption="The old
+intro as of last sprint" %}
 
 The main layout of the menu is a container with a Vertical Layout Group
 component. This automatically arranges its children into the same width and
@@ -37,7 +38,9 @@ also tried to find an alternative, but the layout the VLG provides is a decent
 amount of work to replicate. Ultimately I found the solution in wrapping each of
 the elements in a blank wrapper.
 
-// Pic of menu tree
+{% include figure.html img="https://i.imgur.com/qCaMPzX.png" caption="This is an
+example of the new menu screen structure. Children of the container are all menu
+elements with *their* children being the important content" %}
 
 This wrapper element can be constrained by the VLG parent to provide structure,
 match the height of it's children to be consistent, and not restrict the
@@ -46,13 +49,20 @@ animators on the element prefab and created animations that match each type of
 element. I then linked the menu animator to the animators of it's elements so
 they would all either be open or closed based on the parent.
 
-// Animator with different children
-// Animators can retain properties for different children so the same animation
-can be applied to different prefabs
+{% include figure.html img="https://i.imgur.com/iH6eILA.png" caption="Animations
+can retain properties for different children so the same animation can be
+applied to different prefabs" %}
 
 I made three different animations, but I think one is clearly the best.
 
-// 3 animation demos
+{% include figure.html video="https://i.imgur.com/3F32nBB.mp4" caption="Attempt
+1: The slide in" %}
+
+{% include figure.html video="https://i.imgur.com/TZjVRCi.mp4" caption="Attempt
+2: The fall in" %}
+
+{% include figure.html video="https://i.imgur.com/q40csYi.mp4" caption="Attempt
+3: The stretch in" %}
 
 I really like the falling down animation because it matches the motif of the
 game, traveling downward into the abyss. That's the one the UI team decided on
@@ -65,7 +75,9 @@ pointing to an old version which no longer existed. For example, Looking at the
 InGameMenuSystem, I would see old versions all the screens. Looking at the
 screens, it would show the updated layout, but still refer to old element prefabs.
 
-// Video of prefab glitch
+{% include figure.html video="https://i.imgur.com/3KNoDjZ.mp4" caption="Video
+demonstrating deleting old nested prefab and replacing with new prefab results
+in same old prefab" %}
 
 I tried to delete the children and replace them with the prefabs I knew to be
 good, but they would just reflect the old versions again. I tried restarting
@@ -226,6 +238,9 @@ create and deliver something in one short go. This was shipped after about 6
 hours of work. I had already been learning how to effectively use animators from
 my work on the menu systems and the data source already existed, so everything
 was in place for this to be executed smoothly.
+
+{% include figure.html video="https://i.imgur.com/KYAAJFk.mp4" caption="My
+health bar without any proper art assets" %}
 
 
 ## Auto Builder
