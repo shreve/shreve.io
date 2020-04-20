@@ -1,6 +1,6 @@
 ---
 title: Wrapping It All Up
-date: 2020-04-17
+date: 2020-04-20
 ---
 
 Here we are at the end of the semester, and the final blog post for this
@@ -267,4 +267,5 @@ backburner, which made this sprint time to collect.
 I spent time cleaning up and adding comments to the scripts I had written, as
 well as writing readme documents explaining the installation, set up,
 limitations, and possible future solutions for each. There's not really much to
-this one, but I took a couple hours doing a brain dump for everything I worked on.
+explain to this one, but I took a couple hours doing a brain dump for all the
+tools I worked on.
