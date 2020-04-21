@@ -120,6 +120,10 @@ scene anyway. I was assured by Gino, the Boss pod leader that this would be
 corrected by his team before the final build, so there was nothing else for me
 to do.
 
+{% include figure.html video="https://i.imgur.com/OBdmYTK.mp4#t=7,24"
+caption="Both health bars working within a test scene" %}
+
+
 ## Credits Sequence
 
 (about 6 hours)
@@ -227,6 +231,9 @@ void Update()
     }
 }
 ```
+
+{% include figure.html video="https://i.imgur.com/S8HbJoF.mp4" caption="A demo
+of the credits scroller in the main menu" %}
 
 ## Miscellaneous
 
