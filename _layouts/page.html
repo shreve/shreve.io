@@ -12,13 +12,14 @@
     <meta name="twitter:title" content="{{ page.title }}">
     <meta name="twitter:description" content="{{ page.description }}">
     <meta name="twitter:image" content="{{ page.image }}">
+
     <!-- Facebook -->
     <meta name="og:url" content="https://shreve.io{{ page.url }}">
     <meta name="og:title" content="{{ page.title }}">
     <meta name="og:description" content="{{ page.description }}">
     <meta name="og:image" content="{{ page.image }}">
 
-    <title> {{ page.title }} :: Jacob Evan Shreve</title>
+    <title>{{ page.title }} :: Jacob Evan Shreve</title>
     <meta name="description" content="{{ page.description }}">
     <script>
      if (window.location.protocol !== "https:" && window.location.hostname === "shreve.io")
@@ -27,7 +28,6 @@
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="canonical" href="https://shreve.io{{ page.url }}" />
-    <!-- <link rel="stylesheet" href="https://use.typekit.net/uqq4alz.css" /> -->
   </head>
   <body class="{{ page.layout }} dark-mode">
     {% if page.url != '/' %}<a class="logo" href="/">
