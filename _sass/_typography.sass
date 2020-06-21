@@ -18,8 +18,8 @@ $breakpoint: 50em
   font-family: Fira Mono, Monaco, monospace
 
 %subtext
-  @extend %subtext-color
   @extend %body-font
+  color: var(--subtext-color)
   font-style: italic
 
 .wf-loading
@@ -27,7 +27,7 @@ $breakpoint: 50em
     color: transparent
 
 a, a:visited
-  @extend %link-color
+  color: var(--link-color)
   text-decoration: none
 
 h1, h2, h3, h4, h5, h6
@@ -92,7 +92,7 @@ header *
 
 header
   span
-    @extend %subtext-color
+    color: var(--subtext-color)
     font-size: 1.2rem
 
     *
@@ -193,10 +193,9 @@ cite::before
   content: '\2014'
 
 %code-wrapper
-  @extend %embed-background
-  @extend %border-color
+  background: var(--embed-background)
   @extend %mono-font
-  border: 1px solid
+  border: 1px solid var(--border-color)
   border-radius: 4px
   font-size: 1.2rem
   padding: 0.1rem 0.5rem 0.2rem

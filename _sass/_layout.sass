@@ -40,8 +40,8 @@ body
 a, a:visited
   &.logo
     @extend %display-font
-    @extend %text-color
     @extend %floater
+    color: var(--text-color)
     left: 0
     margin: 0 auto
     font-weight: bold
@@ -49,7 +49,7 @@ a, a:visited
     img
       width: 1.5em
 
-#dark-mode-link
+#theme-link
   @extend %floater
   right: 0
 
