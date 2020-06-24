@@ -16,9 +16,9 @@ let initThemes = () => {
   })()
 
   let swapClasses = (prev, next) => {
-    document.body.classList.remove('default-mode');
-    document.body.classList.remove(prev + '-mode');
-    document.body.classList.add(next + '-mode');
+    document.body.classList.remove('default-theme');
+    document.body.classList.remove(prev + '-theme');
+    document.body.classList.add(next + '-theme');
   }
 
   let updateDisplay = () => {
@@ -31,7 +31,7 @@ let initThemes = () => {
     }
   }
 
-  let modeToggle = (event) => {
+  let themeToggle = (event) => {
     event.preventDefault();
 
     if (currentTheme == 'dark') {
@@ -49,7 +49,7 @@ let initThemes = () => {
   let darkLink = document.createElement('a');
   darkLink.id = "theme-link"
   darkLink.title = "Toggle Theme";
-  darkLink.addEventListener('click', modeToggle);
+  darkLink.addEventListener('click', themeToggle);
   document.body.insertBefore(darkLink, document.body.children[0]);
   updateDisplay();
 
@@ -58,8 +58,8 @@ let initThemes = () => {
     // Ask for a theme preference
     let theme = sessionStorage.getItem('theme') || 'default'
     if (theme != 'default') {
-      document.body.classList.add(theme + '-mode');
-      document.body.classList.remove('default-mode');
+      document.body.classList.add(theme + '-theme');
+      document.body.classList.remove('default-theme');
     }
 
     // Don't perform the gradual CSS transition on first paint

@@ -4,10 +4,6 @@ body.transitions
   *
     transition: all 0.5s
 
-@media (prefers-color-scheme: dark)
-  body
-    color-scheme: dark
-
 \:root
   --lm-body-background: #FFF
   --lm-embed-background: darken(#FFF, 2%)
@@ -33,18 +29,18 @@ $theme-props: body-background, embed-background, text-color, subtext-color, link
   @each $prop in $theme-props
     --#{$prop}: var(--#{$theme}-#{$prop})
 
-.light-mode
+.light-theme
   @include select-theme(lm)
 
-.dark-mode
+.dark-theme
   @include select-theme(dm)
 
 @media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference)
-  .default-mode
+  .default-theme
     @include select-theme(dm)
 
 @media (prefers-color-scheme: light)
-  .default-mode
+  .default-theme
     @include select-theme(lm)
 
 body
@@ -89,18 +85,18 @@ body
   --base0E: #A36AC7
   --base0F: #3971ED
 
-.light-mode
+.light-theme
   @include light-code-theme
 
-.dark-mode
+.dark-theme
   @include dark-code-theme
 
 @media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference)
-  .default-mode
+  .default-theme
     @include dark-code-theme
 
 @media (prefers-color-scheme: light)
-  .default-mode
+  .default-theme
     @include light-code-theme
 
 .highlight
