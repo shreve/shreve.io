@@ -4,51 +4,32 @@ $breakpoint: 50em
   @media only screen and (max-width: $breakpoint)
     @content
 
-%body-font
-  font-family: sans // SF Pro Text, Georgia
-  // letter-spacing: -0.5px
-
-%display-font
-  font-family: sans // SF Pro Display, 'futura-pt', Futura, 'Avenir Next LT Pro', Helvetica, Arial
-
-%fancy-font
-  font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif
-
-%mono-font
-  font-family: Fira Mono, Monaco, monospace
+body
+    font-family: sans
 
 %subtext
-  @extend %body-font
   color: var(--subtext-color)
   font-style: italic
-
-.wf-loading
-  %display-font
-    color: transparent
 
 a, a:visited
   color: var(--link-color)
   text-decoration: none
 
 h1, h2, h3, h4, h5, h6
-  @extend %display-font
   font-weight: bold
   margin-top: 1em
   margin-bottom: 0.5em
-
-  span
-    @extend %display-font
 
 h1, h2
   text-align: center
 
 h1
-  font-size: 5rem
+  font-size: 4rem
   @include small-only
     font-size: 3rem
 
 h2
-  font-size: 3.5rem
+  font-size: 3rem
   @include small-only
     font-size: 2.5rem
 
@@ -59,18 +40,16 @@ h4
   font-size: 1.5rem
 
 label, button
-  @extend %display-font
   font-weight: bold
   text-transform: uppercase
 
 dt
-  @extend %display-font
   font-weight: bold
   font-size: 1.6rem
   margin-bottom: 1rem
 
 .amp
-  @extend %fancy-font
+  font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif
   font-size: 1em
   padding: 0 0.2em
   font-style: italic
@@ -99,7 +78,6 @@ header
       font-size: inherit
 
 p, li, a, cite, time, input, textarea, dd, .content-element, figure
-  @extend %body-font
   line-height: 1.5
   font-size: 1.5rem
   margin-bottom: 1.0em
@@ -193,8 +171,8 @@ cite::before
   content: '\2014'
 
 %code-wrapper
+  font-family: Fira Mono, Monaco, monospace
   background: var(--embed-background)
-  @extend %mono-font
   border: 1px solid var(--border-color)
   border-radius: 4px
   font-size: 1.2rem
