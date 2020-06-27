@@ -16,7 +16,6 @@ let initThemes = () => {
   })()
 
   let swapClasses = (prev, next) => {
-    document.body.classList.remove('default-theme');
     document.body.classList.remove(prev + '-theme');
     document.body.classList.add(next + '-theme');
   }
@@ -59,7 +58,6 @@ let initThemes = () => {
     let theme = sessionStorage.getItem('theme') || 'default'
     if (theme != 'default') {
       document.body.classList.add(theme + '-theme');
-      document.body.classList.remove('default-theme');
     }
 
     // Don't perform the gradual CSS transition on first paint

@@ -6,7 +6,7 @@ permalink: page.url
 <article itemscope itemtype="http://schema.org/BlogPosting">
 
 <meta itemprop="author" content="Jacob Evan Shreve" />
-<meta itemprop="publisher" content="Shreve Industries" />
+<meta itemprop="publisher" content="Shreve Labs" />
 <meta itemprop="inLanguage" content="en-US" />
 {% if page.image %}
   <meta itemprop="image" content="{{ page.image }}" />
