@@ -4,8 +4,11 @@ $breakpoint: 50em
   @media only screen and (max-width: $breakpoint)
     @content
 
+html
+  font-size: 18px
+
 body
-    font-family: sans
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
 
 %subtext
   color: var(--subtext-color)
@@ -19,29 +22,28 @@ h1, h2, h3, h4, h5, h6
   font-weight: bold
   margin-top: 1em
   margin-bottom: 0.5em
+  color: var(--text-color)
 
 h1, h2
   text-align: center
 
 h1
-  font-size: 4rem
-  @include small-only
-    font-size: 3rem
+  font-size: 3rem
 
 h2
-  font-size: 3rem
-  @include small-only
-    font-size: 2.5rem
+  font-size: 2.25rem
 
 h3
   font-size: 2rem
 
 h4
+  font-size: 1.75rem
+
+h5
   font-size: 1.5rem
 
-label, button
-  font-weight: bold
-  text-transform: uppercase
+h6
+  font-size: 1.25rem
 
 dt
   font-weight: bold
@@ -57,7 +59,7 @@ dt
 
 label
   display: inline-block
-  font-size: 1.1rem
+  font-weight: bold
   margin-bottom: 1em
 
 header
@@ -66,25 +68,18 @@ header
   h2
     margin-top: 0
 
-header *
-  text-align: center
-
-header
   span
     color: var(--subtext-color)
-    font-size: 1.2rem
-
-    *
-      font-size: inherit
 
 p, li, a, cite, time, input, textarea, dd, .content-element, figure
   line-height: 1.5
-  font-size: 1.5rem
+  font-size: 1rem
   margin-bottom: 1.0em
+  font-family: inherit
 
 p, ol, ul, .content-element, dd, figure
   width: 100%
-  font-size: 1.5rem
+  font-size: 1rem
   padding: 0 1rem 0.5rem
 
 p, figure
@@ -175,7 +170,7 @@ cite::before
   background: var(--embed-background)
   border: 1px solid var(--border-color)
   border-radius: 4px
-  font-size: 1.2rem
+  font-size: 1rem
   padding: 0.1rem 0.5rem 0.2rem
 
 code
@@ -201,20 +196,19 @@ code, code *
 
 .blog-post
   display: grid
-  grid-template-columns: 10em auto
+  grid-template-columns: 13em auto
   align-items: baseline
 
   span, time
     @extend %subtext
-    font-size: 1rem
     text-align: right
-    padding-right: 1rem
     order: 1
     margin: 0
+    white-space: nowrap
 
   span
-    white-space: nowrap
     display: block
+    padding-right: 1rem
 
   a
     order: 2
@@ -225,6 +219,12 @@ code, code *
 
     span
       text-align: left
+
+.post-footer
+  margin-top: 5rem
+
+  ul
+    list-style-type: none
 
 .heart
   color: red

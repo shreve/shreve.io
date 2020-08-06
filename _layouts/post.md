@@ -49,4 +49,14 @@ permalink: page.url
 
 
 <div itemprop="articleBody text">{{ content }}</div>
+
+<footer class="post-footer">
+<h6>Join the discussion</h6>
+<ul>
+    <li>I'd love to hear your thoughts.</li>
+    <li><a href="{% if page.tweet %}{{ page.tweet }}{% else
+    %}https://twitter.com/_shreve{% endif %}" target="_blank">Reply on Twitter</a></li>
+    <li><a href="#" id="email">Reply via Email</a></li>
+</ul>
+</footer>
 </article>

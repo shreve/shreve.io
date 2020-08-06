@@ -3,6 +3,7 @@ import { initPageLinks } from './page-links.js';
 import { initPosts } from './posts.js';
 import { initImages } from './images.js';
 import { initFlexText } from './flex-text.js';
+import { initEmail } from './email.js';
 import { clipboard } from './clipboard.js';
 
 window.clipboard = clipboard();
@@ -13,6 +14,7 @@ let init = () => {
   initPageLinks();
   initImages();
   initFlexText();
+  initEmail();
 }
 
 document.addEventListener('visit', init);

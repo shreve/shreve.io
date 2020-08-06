@@ -20,8 +20,10 @@ let initPageLinks = () => {
     event.preventDefault();
     let name = event.target.getAttribute('href')
     let target = elementWithName(name);
-    scrollTo(target);
-    window.location.hash = name;
+    if (target) {
+      scrollTo(target);
+      window.location.hash = name;
+    }
   }
 
   let ajaxCallback = (event) => {
