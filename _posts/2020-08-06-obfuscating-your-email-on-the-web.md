@@ -4,6 +4,7 @@ date: 2020-08-06
 description: >-
     In this article, I discuss methods for hiding your email from bots while
     keeping it available to readers.
+tweet: https://twitter.com/_shreve/status/1291514246262591490
 tags:
 - cryptography
 - privacy
