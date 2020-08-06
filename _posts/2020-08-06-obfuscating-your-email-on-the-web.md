@@ -76,8 +76,7 @@ decode_cf("cfa2b6a1aea2aa8faab7aea2bfa3aae1aca0a2")
 # => "myname@example.com"
 ```
 
-I haven't investigated this further, but I suspect the use of `0xCF` as a key
-isn't a coincidence.
+In this case, the use of `0xCF` as a key was just a coincidence.
 
 As far as I know, this scraping hasn't been done at any mass scale, but the fact
 that it could makes me unhappy.
