@@ -8,14 +8,20 @@ let initEmail = () => {
   const byte_xor = (b1, b2) => {
     return b1.map((b, i) => { return b ^ b2[i] });
   }
-  const ebytes = [2, 21, 23, 31, 17, 122, 92, 71, 1, 13, 4, 0, 88, 12, 65];
+  const ebytes = [25,  9, 17, 10, 20, 37, 93, 1,
+                  29, 22, 30, 23, 75, 31, 10];
 
   let emailLink = document.getElementById('email');
   if (emailLink) {
     emailLink.addEventListener('click', (e) => {
       e.preventDefault();
-      let email = str(byte_xor(ebytes, bytes(location.origin)))
-      window.location = "mailto:" + email;
+      let host = location.hostname;
+      while (host.length < ebytes.length) { host = host + host; }
+      let email = str(byte_xor(ebytes, bytes(host)))
+      let a = document.createElement('a');
+      a.target = '_blank';
+      a.href = "mailto:" + email;
+      a.click();
     });
   }
 }
