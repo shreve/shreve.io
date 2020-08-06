@@ -11,16 +11,15 @@ let initEmail = () => {
   const ebytes = [25,  9, 17, 10, 20, 37, 93, 1,
                   29, 22, 30, 23, 75, 31, 10];
 
-  let emailLink = document.getElementById('email');
-  if (emailLink) {
-    emailLink.addEventListener('click', (e) => {
+  document.querySelectorAll('a.email').forEach((a) => {
+    a.addEventListener('click', (e) => {
       e.preventDefault();
       let host = location.hostname;
       while (host.length < ebytes.length) { host = host + host; }
       let email = str(byte_xor(ebytes, bytes(host)))
       window.location = "mailto:" + email;
     });
-  }
+  });
 }
 
 export { initEmail };

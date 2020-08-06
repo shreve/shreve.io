@@ -56,7 +56,7 @@ permalink: page.url
     <li>I'd love to hear your thoughts.</li>
     <li><a href="{% if page.tweet %}{{ page.tweet }}{% else
     %}https://twitter.com/_shreve{% endif %}" target="_blank">Reply on Twitter</a></li>
-    <li><a href="#" id="email">Reply via Email</a></li>
+    <li><a href="#" class="email">Reply via Email</a></li>
 </ul>
 </footer>
 </article>
