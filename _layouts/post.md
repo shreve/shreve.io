@@ -54,12 +54,15 @@ permalink: page.url
 <h6>Join the discussion</h6>
 <ul>
     <li>I'd love to hear your thoughts.</li>
-    <li><a href="{% if page.tweet %}{{ page.tweet }}{% else
-    %}https://twitter.com/_shreve{% endif %}" target="_blank">Reply on Twitter</a></li>
-    <li><a href="#" class="email">Reply via Email</a></li>
+    {% if page.tweet %}
+    <li><a href="{{ page.tweet }}" target="_blank">Reply on Twitter</a></li>
+    {% else %}
+    <li><a href="https://twitter.com/_shreve" target="_blank">Reply on Twitter</a></li>
+    {% endif %}
     {% if page.hn %}
     <li><a href="{{ page.hn }}">Reply on Hacker News</a></li>
     {% endif %}
+    <li><a href="#" class="email">Reply via Email</a></li>
 </ul>
 </footer>
 </article>
