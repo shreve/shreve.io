@@ -9,7 +9,7 @@ permalink: /posts
     {% assign posts = site.posts | sort: 'date' | reverse %}
     {% for post in posts %}
     <li class="blog-post">
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ post.url }}">{{ post.title }}{% if post.draft %} [draft]{% endif %}</a>
       {% if post.updated %}
       <span>Updated {% include date.html date=post.updated %}</span>
       {% else %}
