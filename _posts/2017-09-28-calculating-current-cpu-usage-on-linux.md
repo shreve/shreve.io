@@ -123,6 +123,14 @@ echo "$usage"
 
 This solution is very fast, and gives a pretty accurate measurement of the current CPU usage.
 
+**Note:** The output of `/proc/stat` contains data for each core of your
+processor (e.g. `cpu0`, `cpu1`, ...) as well as the combination of all of them,
+`cpu`.  The space in the grep query `'cpu '` is intentional to grab only the
+aggregate line. Omitting this space will give you a lot of percentages: two
+times the number of cores, plus one. If you instead want the usage of each core,
+this should be a good starting point, but myself and I think most readers only
+want the overall usage.
+
 ```
 Lenovo Thinkpad Carbon X1, 4th gen
 Ubuntu 17.04
