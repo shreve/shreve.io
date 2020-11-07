@@ -51,18 +51,30 @@ permalink: page.url
 <div itemprop="articleBody text">{{ content }}</div>
 
 <footer class="post-footer">
-<h6>Join the discussion</h6>
-<ul>
-    <li>I'd love to hear your thoughts.</li>
-    {% if page.tweet %}
-    <li><a href="{{ page.tweet }}" target="_blank">Reply on Twitter</a></li>
-    {% else %}
-    <li><a href="https://twitter.com/_shreve" target="_blank">Reply on Twitter</a></li>
-    {% endif %}
-    {% if page.hn %}
-    <li><a href="{{ page.hn }}">Reply on Hacker News</a></li>
-    {% endif %}
-    <li><a href="#" class="email">Reply via Email</a></li>
-</ul>
+    <div class="row-2">
+        <div class="col">
+            <h6>Join the discussion</h6>
+            <ul>
+                <li>I'd love to hear your thoughts.</li>
+                {% if page.tweet %}
+                <li><a href="{{ page.tweet }}" target="_blank">Reply on Twitter</a></li>
+                {% else %}
+                <li><a href="https://twitter.com/_shreve" target="_blank">Reply on Twitter</a></li>
+                {% endif %}
+                {% if page.hn %}
+                <li><a href="{{ page.hn }}">Reply on Hacker News</a></li>
+                {% endif %}
+                <li><a href="#" class="email">Reply via Email</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h6>Support the author</h6>
+            <ul>
+                <li>Donations help me produce more content like this.</li>
+                <li><a href="https://github.com/sponsors/shreve" target="_blank">Sponsor Me on GitHub</a></li>
+                <li><a href="https://ko-fi.com/shreve" target="_blank">Give a one-time tip on Ko-Fi</a></li>
+            </ul>
+        </div>
+    </div>
 </footer>
 </article>
