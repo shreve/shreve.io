@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    {% if page.gomod %}
+    <meta name="go-import" content="shreve.io/{{ page.gomod }} git https://github.com/shreve/{{ page.gomod }}">
+    <meta http-equiv="refresh" content="0; url=https://github.com/shreve/{{ page.gomod }}">
+    {% endif %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

@@ -107,6 +107,22 @@ MzBUMTA6MTA6MDMtMDQ6MDBh0Sj/AAAAAElFTkSuQmCC"/>
   </section> -->
 
   <section>
+    <h3>Projects</h3>
+    <ul class="project-list">
+      {% for project in site.projects  %}
+      <li class="project-list-item">
+        <a href="{{ project.url }}">{{ project.title }}</a>
+        {{ project.description | markdownify }}
+      </li>
+      {% endfor %}
+
+      <li class="blog-project">
+        <a href="/projects">See the full list &#8594;</a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
     <h3>Blog Posts</h3>
     <ul class="blog-post-list">
       {% assign posts = site.posts | sort: 'date' | reverse %}
