@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@_shreve">
+    <meta name="twitter:url" content="{{ .RelPermalink }}">
+    <meta name="twitter:title" content="{{ .Title }} :: Shreve Labs">
+    <meta name="twitter:description" content="{{ .Description }}">
+    <meta name="twitter:image" content="{{ .Params.image }}">
+    <meta name="twitter:image:src" content="{{ .Params.image }}">
+    <meta name="twitter:image:alt" content="{{ .Params.image_alt }}">
+
+    <!-- Facebook -->
+    <meta name="og:site_name" content="shreve.io">
+    <meta name="og:url" content="{{ .RelPermalink }}">
+    <meta name="og:title" content="{{ .Title }}">
+    <meta name="og:description" content="{{ .Description }}">
+    <meta name="og:image" content="{{ .Params.image }}">
+    <meta name="og:type" content="article">
+
+    <title>{{ .Title }} :: Shreve Labs</title>
+    <meta name="description" content="{{ .Description }}">
+    <script>
+     if (window.location.protocol !== "https:" && window.location.hostname === "shreve.io")
+       window.location.protocol = "https:";
+    </script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+
+    {{ $options := (dict "targetPath" "app.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+    {{ $style := resources.Get "sass/main.sass" | resources.ToCSS $options }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+
+    <link rel="canonical" href="{{ .RelPermalink }}" />
+    <link rel="alternate" type="application/rss+xml" href="/posts/feed.xml" />
+  </head>
+  <body>
+    <nav>
+      {{ if ne .Permalink .Site.BaseURL -}}
+      <a class="logo" href="/">
+        <img data-src="/img/1-800-jake-wins-small.png"
+             alt="JS"
+             class="img-to-load"
+             src="data:image/png;base64,
+               iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+               AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAABRNzI/Ly1QNzQy
+               HhorGRZkSUfHjY7LjI3JjY9/Y2fJlpZyXWBhUk+ui43JjY5qW1xaQDpGLig6JiExHxwkGBYlGhhz
+               WlVZPjs3IyAtHBkUDAsZERE1IR02Ih+ifYB7WlsOCAgpHh0uHRppSEYMBwYeFhRgRkRxUE+Xb3Bs
+               T1AcExIvJCLKj5Crd3dSNjeCUlfLjI6+goOHW2CdX2jKj5Gxe3yPZ2t5YGSSaW7LmJjIk5Ojf4OC
+               ZWlvW17AkJC2iY2Wd3t6ZWhrW11gV1Y1Ih8vHxsdEhCHZWZFMDASCwrWoqPToqW0h4qCY2YkGRml
+               eHhxVlk6LCuoeHiSamyHYmOHZGdRPT6ndneXa269homXcXZyWFudb3Ooen2Ta3G7iY2sgof////8
+               p7IEAAAARXRSTlMAAAAAAAAAAAAAAAAAAAAAAA502OmtOwELlPngUUX1///FE1b62h8c1f//yRIf
+               3tUdQfW8EEv5/7QuGsv/2jRM1tOLMwHRr0iWAAAAAWJLR0RiK7kdPAAAAAd0SU1FB+MDHgorHbOD
+               jZYAAAB2SURBVAjXY2BgFBQSFhEVE2diYJaQlHJ1c5eWYWBgkZXzkFfw9FJUYmBVVvH28fXzV1Vj
+               YFPXCNDUCgzS1mFg19ULDgkNC9c3YOAwNIqIjIqOMTZh4DQ1izWPi7ew5GLgtrJOSLSxtePhZeDj
+               t3dwdHJ2EWAAAIcWEpKdb/ycAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTAzLTMwVDEwOjQzOjM2
+               LTA0OjAwVluvRgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wMy0zMFQxMDo0MzoyOS0wNDowMB3k
+               Z40AAAAASUVORK5CYII=" />
+      </a>
+      {{- end }}
+    </nav>
+    <section class="wrapper">
+      <article class="wrapped">
+        {{ block "main" . }}{{ end }}
+      </article>
+      <footer class="site-footer">
+        <ul class="level">
+          <li class="level-item"><span>&copy; {{ now.Year }} Shreve Labs, LLC</span></li>
+          <li class="level-item"><a href="/posts">Blog</a></li>
+          <li class="level-item"><a href="/posts/feed.xml">RSS</a></li>
+          <li class="level-item"><a href="#" class="email">Email</a></li>
+          <li class="level-item"><a href="https://twitter.com/_shreve" target="_blank">Twitter</a></li>
+          <li class="level-item"><span>Made with <span class="heart">&#x2764;</span> in Michigan<span></li>
+        </ul>
+      </footer>
+    </section>
+
+    {{ $options := (dict "targetPath" "app.js") }}
+    {{ $js := resources.Get "js/app.js" | js.Build $options }}
+    <script type="module" src="{{ $js.RelPermalink }}"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<p style="text-align: center">
+  {{- $width := int (.Get "width") -}}
+  {{- $scale := (div 100 $width) -}}
+  {{- $cutoff := (div $width 2) -}}
+  {{- range $i := seq $width -}}
+    {{- if eq "1" ($.Get "v") -}}
+      <span style="color: rgb({{ (mul (mul (sub $width $i) 2.55) $scale) }}, {{ (mul (mul $i 2.55) $scale) }}, 0);">&#9608;</span>
+    {{- else -}}
+      {{- if gt $i $cutoff -}}
+        <span style="color: rgb({{ (mul (mul (sub $width $i) (mul 2 2.55)) $scale) }}, 255, 0);">&#9608;</span>
+      {{- else if lt $i $cutoff -}}
+        <span style="color: rgb(255, {{ (mul (mul $i (mul 2.55 2)) $scale) }}, 0);">&#9608;</span>
+      {{- else -}}
+        <span style="color: rgb(255, 255, 0);">&#9608;</span>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+</p>

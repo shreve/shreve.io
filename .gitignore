@@ -1,4 +1,3 @@
-.asset-cache
-_site
-_drafts
-ssl*
+resources/
+public/
+content/drafts/

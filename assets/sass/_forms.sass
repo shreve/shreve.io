@@ -1,0 +1,52 @@
+input,
+textarea
+  background: var(--embed-background)
+  border: 1px solid var(--border-color)
+  color: var(--text-color)
+  padding: 0.8em
+  display: block
+  width: 100%
+  font-size: 1rem
+  font-family: var(--font-family)
+
+.input-group
+  margin-bottom: 2rem
+
+.file-input
+  background: var(--embed-background)
+  border: 1px solid var(--border-color)
+  position: relative
+  width: 100%
+  height: 100%
+  margin-bottom: 2em
+
+  label
+    font-weight: normal
+    text-transform: none
+    padding: 0.8em
+    margin: 0
+
+  input[type="file"]
+    position: absolute
+    top: 0
+    bottom: 0
+    z-index: 1000
+    diplay: block
+    margin: 0
+    opacity: 0
+
+.form-group
+  margin: 0 auto
+  padding: 0 1em 0.5em
+
+button
+  background: var(--button-background)
+  color: var(--button-color)
+  display: inline-block
+  border: 1px solid var(--border-color)
+  padding: 0.6em 1em 0.6em
+  cursor: pointer
+  font-size: 1rem
+
+::focus
+  outline: 1px solid var(--link-color)

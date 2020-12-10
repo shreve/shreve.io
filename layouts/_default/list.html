@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <article class="content">
+    {{ .Content }}
+
+    <ul>
+      {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+
+    {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<a rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+      Subscribe via RSS
+    </a>
+    {{ end -}}
+  </article>
+{{ end }}

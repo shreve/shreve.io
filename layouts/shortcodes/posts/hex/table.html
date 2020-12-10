@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Output</th>
+      <th>Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- $hexes := split "00,33,66,99,CC,FF" "," -}}
+    {{- range $j := seq 0 10 -}}
+      {{- $i := (sub 10 $j) -}}
+      {{- $red := 5 -}}
+      {{- $green := 5 -}}
+      {{ if gt $i 5 }}
+        {{ $red = (sub 10 $i) }}
+      {{ end }}
+      {{ if lt $i 5 }}
+        {{ $green = $i }}
+      {{ end }}
+      {{ $color := (printf "#%s%s00" (index $hexes $red) (index $hexes $green)) }}
+      <tr>
+        <td>{{ mul $i 10 }}%</td>
+        <td>{{ $color }}</td>
+        <td><span style="color: {{ $color }};">&#9608;&#9608;&#9608;</span></td>
+      </tr>
+    {{- end -}}
+  </tbody>
+</table>

@@ -1,0 +1,63 @@
+{{ define "main" }}
+<header class="content">
+  <h1 class="flex-text">
+    Jacob Evan Shreve
+  </h1>
+  <h2 class="flex-text">
+    Systems Programmer
+    <span class="amp">&</span>
+    Aspiring Cryptography Engineer
+  </h2>
+  <img class="hero-image img-to-load"
+       alt="Jacob's Face"
+       data-src="/img/1-800-jake-wins.png"
+       src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACW1BMVEUAAAD///9ROTE7LSvv
+39xQNS0sIB5eRD4yKSczHRcbFBNdT00WBABcTUsHAwJfUE5TPjwfFxa3i4k2JiXMkpFeKC3Qj5CV
+VmHKh4mZZGzMjpCzZnOBcHHGk5NyYWO8k5P/qZFoW11xZGS0j49iUVRXZFxgRz9AKSM6JR81IBst
+HBgoGhgmGhhLPTtiRz5IMClELCUdExEiGBczJyVoTEVCKiQnFxQOCQgXERA7MC9AKSMpFxMMCAgi
+Gho2IRwWEBAzIyBRNjQWEA9QPjxmSUYYERAjGxnBkY+KY2ImGxpDMDDNk5LEh4d+S1HRkZPKioyF
+V12ZXWfJi418YWWSZmyaZG3Kj5HEjo57X2R0X2KabnXGk5TOmphzXGBxYmTClZPGkpKZfH+EbHBw
+XmFqXV6zkY+2iYyofoSHbXBtXV9lWVpbVFM+KSQ3JSEwIB0iFRMdEQ4qGhcuHRksHRkeExEVDAs8
+KSeBX2CWdHd/YGFZPz00IiAbERAIBQUtGBWbcnHcq67Zr7PLnqGsgoSHZmlLNzcLBgUGBAPFkJDd
+p6nWpKfEkpWwhYiXdHhSPj4XEA8LBgaCXFu/jY6pfX50U1NqTk93W15eSUooHh1qSkqpenmPaWpm
+TU5fR0hwUlR0Wl4vJCO3gH+2hIKWbW6acnOWa22VbnB7YGNBMTFcPT69hYSmd3iJX2K3goXIjJGg
+dnx7YmZnUVOudXefa2ybbnGOZWqecXW4gYaccHh8YmaVYmalen+NZWqHYGO1hYibbHTCi4y2g4qq
+f4WxiYqwiYyLaG3Ek5qxiY7///8rMMB4AAAAbHRSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAZRsOXWlToCE47w5XgODaT9/JUJU/jzRXt3f/5yHcz9WQ/K+Eom5YFM+fta
+cPSzFmT/+28OJdy8Em33/uuxMwl41siJPApPGBHhAAAAAWJLR0QB/wIt3gAAAAd0SU1FB+MDHgoK
+A8UTpRYAAAD4SURBVAjXY2BgYGRSU9fQ1NLW0WVmAAIWVj19g5zcvHxDI2M2RgYGdhNTs4LCouKS
+UnMLSw4GBk4r67Lyisqq6ppaG1suBm4eu7r6hsam5pbWtnZ7BgZeBgfHjs6u7p7evv4JTnwM/ALO
+LhMnTZ4yddr0Ga5uggwMQu4eM2fNnjN33vwFnl7CDAwi3j4LFy1esnTZ8hUrfUUZGMT8/FetXrN2
+3foNGwMCxRkYJII2bd6yddv2HTuDQ0IlGRikwsJ37d6zd9/+iMgoaRkGBtnomAMHDx0+cjQ2Tg7k
+fnmF+IRjxxOTklMUlUB8BuXUtPSMzKxsFVUgBwBmpk2+i1xz2AAAACV0RVh0ZGF0ZTpjcmVhdGUA
+MjAxOS0wMy0zMFQxMDo0MToyOS0wNDowMGhMDwwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDMt
+MzBUMTA6MTA6MDMtMDQ6MDBh0Sj/AAAAAElFTkSuQmCC"/>
+</header>
+<article class="content">
+  <p>
+    Hey there! My name's Jacob. I live in Ypsilanti, MI, and I'm a a programmer
+    currently looking for work. My background is in web development, but after
+    completing my CS degree, I'm pursuing a career in systems programming.
+  </p>
+
+  <section>
+    <h3>Blog Posts</h3>
+    <ul class="blog-post-list">
+      {{ range $post := first 5 .Site.RegularPages.ByDate.Reverse }}
+        {{ .Render "summary" }}
+      {{ end }}
+      <li class="blog-post-preview">
+        <a href="/posts">See the full list &#8594;</a>
+        <span><time datetime="0"></time></span>
+      </li>
+    </ul>
+  </section>
+
+  <blockquote>
+    <p>This song goes out to anybody here that believes that maybe, just maybe, we were all born with the moral obligation to leave this world a better place than the world that we've found.</p>
+    <cite>Tim McIlrath</cite>
+  </blockquote>
+</article>
+{{ end }}

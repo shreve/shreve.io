@@ -1,0 +1,18 @@
+baseURL = "https://shreve.io"
+languageCode = "en-us"
+enableRobotsTXT = true
+enableGitInfo = true
+disableKinds = ["taxonomies", "categories"]
+title = "Shreve Labs"
+pygmentsUseClasses = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[Taxonomies]
+tags = "tags"
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "feed"

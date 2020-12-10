@@ -1,0 +1,92 @@
+*, *::before, *::after
+  box-sizing: border-box
+
+html
+  overflow-x: hidden
+
+html, body
+  margin: 0
+  min-height: 100%
+  width: 100%
+
+body
+  max-width: 100%
+  display: flex
+  flex: 1
+  align-items: center
+  justify-content: center
+
+  &.transitions
+    transition: background 0.5s
+
+.hero-image
+  max-width: 100%
+  width: 250px
+  margin: 1em auto 3em
+  display: block
+
+%floater
+  position: fixed
+  z-index: 1000
+  top: 0
+  text-decoration: none
+  padding: 0.5rem 1rem
+  font-size: 2rem
+
+a, a:visited
+  &.logo
+    @extend %floater
+    color: var(--text-color)
+    left: 0
+    margin: 0 auto
+    font-weight: bold
+
+    img
+      width: 1.5em
+
+#theme-link
+  @extend %floater
+  right: 0
+
+.wrapper
+  width: 100%
+  min-height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+
+  .wrapped
+    padding: 1em
+    margin-bottom: 15rem
+    height: 100%
+    width: 100%
+
+.content
+  max-width: 45em
+  margin: 0 auto
+
+.site-footer
+  color: var(--subtext-color)
+  position: absolute
+  bottom: 5rem
+  width: 100%
+
+  .level-item
+    padding: 0 1rem
+
+.level
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly
+  align-items: center
+  list-style-type: none
+
+.level-item
+  align-items: center
+  justify-content: center
+  display: flex
+  flex-shrink: 0
+  flex-grow: 1
+  flex-basis: auto
+

@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <article class="content">
+    {{ .Content }}
+
+    <ul class="blog-post-previews">
+      {{ range where .Pages "Section" "posts" }}
+        {{ .Render "summary" }}
+      {{ end }}
+    </ul>
+  </article>
+{{ end }}

@@ -1,0 +1,3 @@
+<time datetime="{{ .date }}" {{ if .prop }}itemprop="{{.prop}}"{{ end }}>
+  {{ .date.Format "2" }}{{ if in (slice 1 21 31) .date.Day}}st{{ else if in (slice 2 22) .date.Day}}nd{{ else if in (slice 3 23) .date.Day}}rd{{ else }}th{{ end }} of {{ .date.Format "January, 2006" }}
+</time>

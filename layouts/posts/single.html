@@ -1,0 +1,75 @@
+{{ define "main" }}
+<section itemscope itemtype="http://schema.org/BlogPosting">
+
+  <meta itemprop="author" content="Jacob Evan Shreve" />
+  <meta itemprop="publisher" content="Shreve Labs" />
+  <meta itemprop="inLanguage" content="en-US" />
+  <meta itemprop="wordCount" content="{{ .WordCount }}" />
+  <meta itemprop="description" content="{{ .Description }}" />
+  {{ if .Params.image }}
+  <meta itemprop="image" content="{{ .Params.image }}" />
+  {{ end }}
+
+  <header class="blog-post__header">
+    <h1 itemprop="name headline">{{ .Title }}</h1>
+
+    <ul class="level content">
+      <li class="level-item">
+        <span class="timestamps">
+          Published {{ partial "date.html" (dict "date" .Date "prop" "datePublished") }}
+        </span>
+      </li>
+      {{ if .Params.tags -}}
+      <li class="level-item">
+        <ul class="tags" itemprop="keywords">
+          {{- range $tag := .Params.tags -}}
+          {{- with $.Site.GetPage (printf "/tags/%s" (urlize $tag)) -}}
+          <li>
+            <a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+          {{- end -}}
+          {{- end -}}
+        </ul>
+      </li>
+      {{- end }}
+      <li class="level-item">
+        <time>About a {{ .ReadingTime }} minute read</time>
+      </li>
+    </ul>
+  </header>
+
+  <article class="content" itemprop="articleBody text">
+    {{ .Content }}
+  </article>
+
+  <footer class="post-footer content">
+    <div class="row-2">
+      <div class="col">
+        <h6>Join the discussion</h6>
+        <ul>
+          <li>I'd love to hear your thoughts.</li>
+          {{ if .Params.tweet }}
+          <li><a href="{{ .Params.tweet }}" target="_blank">Reply on Twitter</a></li>
+          {{ else }}
+          <li><a href="https://twitter.com/_shreve" target="_blank">Reply on Twitter</a></li>
+          {{ end }}
+          {{ if .Params.hn }}
+          <li><a href="{{ .Params.hn }}">Reply on Hacker News</a></li>
+          {{ end }}
+          <li><a href="#" class="email">Reply via Email</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h6>Support the author</h6>
+        <ul>
+          <li>Donations help me produce more content like this.</li>
+          <li><a href="https://github.com/sponsors/shreve" target="_blank">Sponsor Me on GitHub</a></li>
+          <li><a href="https://ko-fi.com/shreve" target="_blank">Give a one-time tip on Ko-Fi</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</section>
+
+{{ end }}

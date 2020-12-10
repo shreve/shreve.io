@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+
+#
+# This script validates content files. The main use case is making sure every
+# post has the metadata I want it to have.
+#
+
+require 'yaml'
+
+class Section < Struct.new(:path, :required)
+  FRONT_MATTER_MATCH = /---(?:(?!---).)*?---\n+/m
+
+  def validate!
+    valid = Dir["./content/#{self.path}/[^_]*.md"].map do |page|
+      validate_page(page)
+    end
+
+    if valid.all?
+      puts "Success! All #{self.path} are valid."
+    end
+  end
+
+  def validate_page(path)
+    contents = File.read(path)
+    front_matter = extract_front_matter(contents)
+    metadata = sort_keys(front_matter)
+
+    formatted = YAML.dump(metadata)
+    contents = contents.gsub(FRONT_MATTER_MATCH, "#{formatted}---\n\n")
+    File.write(path, contents)
+
+    errors = validate_meta(metadata)
+    if errors.any?
+      puts "Errors in #{path}:"
+      errors.each do |error|
+        puts "* #{error}"
+      end
+      puts ""
+    end
+    not errors.any?
+  end
+
+  def validate_meta(hash)
+    errs = []
+    self.required.each do |key|
+      unless hash.keys.include?(key)
+        errs.push("missing required key #{key}")
+      end
+    end
+    return errs
+  end
+
+  def extract_front_matter(content)
+    fm_content = content.match(FRONT_MATTER_MATCH)[0].strip
+    YAML.load(fm_content).to_h
+  end
+
+  def sort_keys(hash)
+    Hash[ hash.sort_by { |key,| self.required.index(key) or self.required.size } ]
+  end
+end
+
+posts = Section.new('posts', %w[title description tags date])
+posts.validate!

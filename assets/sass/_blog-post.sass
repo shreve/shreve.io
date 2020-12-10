@@ -1,0 +1,30 @@
+.blog-post__header
+  padding: 5rem 1rem
+  color: var(--subtext-color)
+
+.blog-post-preview
+  display: grid
+  grid-template-columns: 13em auto auto
+  align-items: baseline
+
+  span, time
+    @extend %subtext
+    text-align: right
+    order: 1
+    margin: 0
+    white-space: nowrap
+
+  span
+    display: block
+    padding-right: 1rem
+
+  a
+    order: 2
+    margin: 0
+
+  @include small-only
+    display: block
+
+    span
+      text-align: left
+

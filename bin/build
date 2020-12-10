@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+hugo --cleanDestinationDir --ignoreCache --minify

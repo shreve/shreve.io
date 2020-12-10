@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h1>Not Found</h1>
+
+<article class="content center">
+  <p id="message">
+    I'm not sure what you were looking for.
+  </p>
+</article>
+
+<script>
+ let posts = [
+   {{ range .Site.Pages -}}
+   "{{ .RelPermalink }}",
+   {{- end }}
+ ];
+
+ const [query] = window.location.pathname.split('/').slice(-1);
+ const [post] = posts.filter((post) => post.includes(query)).slice(-1);
+ if (post) {
+   document.getElementById('message').innerText = "I think I know what you were looking for. Redirecting shortly...";
+   setTimeout(() => { window.location = post }, 1000);
+ }
+</script>
+{{ end }}
