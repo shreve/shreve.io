@@ -41,7 +41,7 @@
   </head>
   <body>
     <nav>
-      {{ if ne .Permalink .Site.BaseURL -}}
+      {{ if ne .RelPermalink "/" -}}
       <a class="logo" href="/">
         <img data-src="/img/1-800-jake-wins-small.png"
              alt="JS"
@@ -68,7 +68,7 @@
       <article class="wrapped">
         {{ block "main" . }}{{ end }}
       </article>
-      <footer class="site-footer">
+      <footer class="site-footer content">
         <ul class="level">
           <li class="level-item"><span>&copy; {{ now.Year }} Shreve Labs, LLC</span></li>
           <li class="level-item"><a href="/posts">Blog</a></li>
