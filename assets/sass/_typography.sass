@@ -6,7 +6,7 @@ $breakpoint: 50em
 
 html
   font-size: 18px
-  font-size: calc(16px + 0.25vh)
+  font-size: calc(18px + 0.25vh)
 
 body
   --font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
@@ -88,27 +88,19 @@ li
   margin-bottom: 0.5em
 
 blockquote
-  margin: 5em 1em
+  margin: 3em 0
+  padding: 1em
   position: relative
 
-  p
-    quotes: '\201C' '\201D' '\2018' '\2019'
-
-    &::before, &::after
-      content: '\201C'
-      font-size: 2.5rem
-      display: inline
-
-    &::before
-      content: open-quote
-      position: absolute
-      left: -0.3em
-      top: -0.4em
-
-    &::after
-      content: close-quote
-      vertical-align: middle
-      line-height: 0
+  &::before
+    content: ''
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--gradient-start))
+    width: 2px
+    top: 0
+    bottom: 0
+    position: absolute
+    animation: shifting-background 30s linear infinite
+    background-size: 300% 300%
 
 cite
   display: block
@@ -161,11 +153,13 @@ hr
 %code-wrapper
   font-family: Fira Mono, Monaco, monospace
   background: var(--embed-background)
-  border: 1px solid var(--border-color)
+  border: 1px solid
+  border-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)) 1
   border-radius: 4px
   tab-size: 4
   -moz-tab-size: 4
   line-height: 1.2
+  position: relative
 
 code
   @extend %code-wrapper
@@ -209,7 +203,8 @@ table
 // Pretty Ampersand
 .amp
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif
-  font-size: 1em
+  font-size: 2em
+  vertical-align: middle
   padding: 0 0.2em
   font-style: italic
   font-weight: normal
@@ -226,9 +221,16 @@ table
   font-style: normal
   content: ''
 
+// Keyframes
 @keyframes heartbeat
   0%, 30%, 100%
     transform: scale(1)
 
   15%, 45%
     transform: scale(1.35)
+
+@keyframes shifting-background
+  0%
+    background-position: 0% 0%
+  100%
+    background-position: 300% 300%

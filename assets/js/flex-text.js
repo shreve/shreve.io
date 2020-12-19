@@ -15,7 +15,7 @@ let initFlexText = () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       for (let el of flexTexts) { flexText(el); }
-    }, 10);
+    }, 0);
   }
 
   for (let el of document.getElementsByClassName('flex-text')) {
