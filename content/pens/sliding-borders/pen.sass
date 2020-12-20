@@ -3,13 +3,15 @@
   --gradient-end: #00ffff
 
 $size: 800px
+$colors: (#ff00ff, #00ffff, #ffff00)
+$first: #ff00ff
 
 %sliding-border
   position: relative
 
   &::before
     content: ''
-    background: repeating-linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--gradient-start), var(--gradient-end), var(--gradient-start))
+    background: linear-gradient(45deg, $colors, $colors, $first)
     position: absolute
     animation: sliding-border-anim 5s linear infinite
     background-size: $size $size
