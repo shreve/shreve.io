@@ -1,0 +1,88 @@
+{{ define "main" }}
+<section itemscope itemtype="http://schema.org/BlogPosting">
+
+  <meta itemprop="author" content="Jacob Evan Shreve" />
+  <meta itemprop="publisher" content="Shreve Labs" />
+  <meta itemprop="inLanguage" content="en-US" />
+  <meta itemprop="wordCount" content="{{ .WordCount }}" />
+  <meta itemprop="description" content="{{ .Description }}" />
+  {{ if .Params.image }}
+  <meta itemprop="image" content="{{ .Params.image }}" />
+  {{ end }}
+
+  <header class="blog-post__header">
+    <h1 itemprop="name headline">{{ .Title }}</h1>
+
+    <ul class="level content">
+      <li class="level-item">
+        <span class="timestamps">
+          Published {{ partial "date.html" (dict "date" .Date "prop" "datePublished") }}
+        </span>
+      </li>
+      {{ if .Params.tags -}}
+      <li class="level-item">
+        <ul class="tags" itemprop="keywords">
+          {{- range $tag := .Params.tags -}}
+          {{- with $.Site.GetPage (printf "/tags/%s" (urlize $tag)) -}}
+          <li>
+            <a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+          {{- end -}}
+          {{- end -}}
+        </ul>
+      </li>
+      {{- end }}
+    </ul>
+  </header>
+
+  <article class="content" itemprop="articleBody text">
+    {{ .Content }}
+
+    {{ $html := .Resources.GetMatch "pen.html" }}
+    {{ $sass := .Resources.GetMatch "pen.sass" }}
+    {{ $js := .Resources.GetMatch "pen.js" }}
+    {{ $all := slice $html $sass $js }}
+
+    {{ $present := $all | complement (slice nil) }}
+    {{ $fp := "" }}
+    {{ range $present }}
+      {{ $fp = printf "%s%s" $fp .Content }}
+    {{ end }}
+    {{ $fp = $fp | sha256 | truncate 7 "" }}
+
+    <h3>Preview</h3>
+    {{ $embed := resources.Get "pens/embed.html" }}
+    {{ $output := printf "%sembed.html" .RelPermalink }}
+    {{ if not hugo.IsProduction }}
+    {{ $output = printf "%sembed.%s.html" .RelPermalink $fp }}
+    {{ end }}
+    {{ $options := dict "Page" . "html" $html "sass" $sass "js" $js }}
+    {{ $preview := $embed | resources.ExecuteAsTemplate $output $options }}
+
+    <div class="box">
+      <iframe src="{{ $preview.RelPermalink }}" style="height: {{ .Params.height }}"></iframe>
+      {{ if not hugo.IsProduction }}
+      <script>
+        document.querySelector('iframe').src += "?t=1"
+      </script>
+      {{ end }}
+    </div>
+
+    {{ with $html }}
+      <h3>HTML</h3>
+      {{ highlight .Content "go-html-template" "" }}
+    {{ end }}
+
+    {{ with $sass }}
+      <h3>Sass</h3>
+      {{ highlight .Content "sass" "" }}
+    {{ end }}
+
+    {{ with $js }}
+      <h3>JS</h3>
+      {{ highlight .Content "js" "" }}
+    {{ end }}
+  </article>
+</section>
+
+{{ end }}

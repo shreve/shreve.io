@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Page.Title }} JakePen</title>
+    {{ with .sass }}
+      {{ $css := . | resources.ToCSS (dict "targetPath" "pen.css" "outputStyle" "expanded") }}
+      <style>{{ $css.Content }}</style>
+    {{ end }}
+    <style>
+body {
+  background: black;
+  color: white;
+  margin: 0 auto;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#pen-content {
+  width: 30em;
+}
+    </style>
+  </head>
+  <body>
+    <section id="pen-content">
+      {{ with .html }}
+      {{ .Content }}
+      {{ end }}
+    </section>
+
+    {{ with .js }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{ end }}
+  </body>
+</html>

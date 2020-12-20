@@ -1,0 +1,27 @@
+%sliding-background
+  $size: 800px
+  $border-width: 3px
+  $colors: (#62ebfe, #fe84fd, #84ffc8)
+
+  position: relative
+
+  &::before
+
+    content: ''
+    background: repeating-linear-gradient(45deg, $colors, $colors, #62ebfe)
+    background-repeat: none
+    position: absolute
+    animation: sliding-background-anim 5s linear infinite
+    background-size: $size $size
+    top: -$border-width
+    bottom: -$border-width
+    left: -$border-width
+    right: -$border-width
+    width: calc(100% + (2 * $border-width))
+    z-index: -1
+
+  @keyframes sliding-background-anim
+    0%
+      background-position: 0px 0px
+    100%
+      background-position: 0px (-1 * $size)

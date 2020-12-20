@@ -1,0 +1,61 @@
+\:root
+  --gradient-start: #ff00ff
+  --gradient-end: #00ffff
+
+$size: 800px
+
+%sliding-border
+  position: relative
+
+  &::before
+    content: ''
+    background: repeating-linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--gradient-start), var(--gradient-end), var(--gradient-start))
+    position: absolute
+    animation: sliding-border-anim 5s linear infinite
+    background-size: $size $size
+    top: -2px
+    bottom: -2px
+    left: -2px
+    right: -2px
+    z-index: -1
+
+@keyframes sliding-border-anim
+  0%
+    background-position: 0% $size
+  100%
+    background-position: 0% 0%
+  
+p
+  margin: 0 0 1em
+  
+pre
+  @extend %sliding-border
+  background: #111
+  padding: 0 1em
+  margin: 1em 0 3em
+  
+blockquote
+  @extend %sliding-border
+  padding: 1em 0em 1em 3em
+  margin: 1em 0 3em
+  font-size: 1.25em
+  
+  &::before
+    width: 1rem
+
+cite
+  width: 100%
+  text-align: right
+  display: block
+  
+a
+  @extend %sliding-border
+  color: white
+  text-decoration: none
+  
+  &:hover
+    color: var(--gradient-end)
+  
+  &::before
+    height: 1px
+    top: 90%

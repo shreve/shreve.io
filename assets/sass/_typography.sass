@@ -88,22 +88,15 @@ li
   margin-bottom: 0.5em
 
 blockquote
+  @extend %sliding-background
   margin: 3em 0
-  padding: 1em
-  position: relative
+  padding: 1em 1em 1em 3em
 
   &::before
-    content: ''
-    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--gradient-start))
-    width: 2px
-    top: 0
-    bottom: 0
-    position: absolute
-    animation: shifting-background 30s linear infinite
-    background-size: 300% 300%
+    width: 1rem
 
 cite
-  display: block
+  display: inline-block
   width: 100%
   text-align: right
 
@@ -153,8 +146,6 @@ hr
 %code-wrapper
   font-family: Fira Mono, Monaco, monospace
   background: var(--embed-background)
-  border: 1px solid
-  border-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)) 1
   border-radius: 4px
   tab-size: 4
   -moz-tab-size: 4
@@ -163,7 +154,10 @@ hr
 
 code
   @extend %code-wrapper
-  padding: 0.1rem 0.5rem 0.2rem
+  padding: 0 0.3rem
+  border: 1px solid
+  border-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)) 1
+  white-space: nowrap
 
 pre
   @extend %code-wrapper
@@ -172,10 +166,15 @@ pre
   padding: 1rem
   margin-bottom: 2em
 
+.highlight
+  @extend %sliding-background
+  margin: 0 1em
+
 // Code tags within pre cause style issues
 pre code
   border: 0
   padding: 0
+  white-space: pre
 
 .highlight span
   vertical-align: text-top
