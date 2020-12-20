@@ -60,7 +60,14 @@
     {{ $preview := $embed | resources.ExecuteAsTemplate $output $options }}
 
     <div class="box">
-      <iframe src="{{ $preview.RelPermalink }}" style="height: {{ .Params.height }}"></iframe>
+      <script type="text/javascript">
+        window.addEventListener("message", (event) => {
+          if (event.data.height) {
+            document.querySelector('iframe').style.height = event.data.height + 'px'
+          }
+        })
+      </script>
+      <iframe src="{{ $preview.RelPermalink }}" style="height: 40px"></iframe>
       {{ if not hugo.IsProduction }}
       <script>
         document.querySelector('iframe').src += "?t=1"

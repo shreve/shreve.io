@@ -22,6 +22,7 @@ body {
 
 #pen-content {
   width: 30em;
+    padding: 2em 0;
 }
     </style>
   </head>
@@ -35,5 +36,12 @@ body {
     {{ with .js }}
     <script src="{{ .RelPermalink }}"></script>
     {{ end }}
+    <script type="text/javascript">
+      const obj = {
+        height: document.getElementById('pen-content').clientHeight
+      }
+      parent.postMessage(obj, '*')
+      console.log("sent message", obj)
+    </script>
   </body>
 </html>
