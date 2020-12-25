@@ -1,5 +1,6 @@
 ---
 title: Hex Color Scales
+description: Taking a look at ways to represent a number scale as colors along a gradient.
 tags:
 - hexadecimal
 - programming

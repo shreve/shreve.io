@@ -1,6 +1,8 @@
 ---
 title: The Juice
 description: Squeeze the most out of everything you do.
+tags:
+- life advice
 date: 2019-02-20
 ---
 

@@ -1,5 +1,7 @@
 ---
 title: Creating a website theme that respects user preference
+description: Covering a lightweight way to change your site's theme based on the OS-provided
+  theme preference.
 tags:
 - CSS
 - Sass
