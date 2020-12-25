@@ -43,13 +43,26 @@ MzBUMTA6MTA6MDMtMDQ6MDBh0Sj/AAAAAElFTkSuQmCC"/>
   </p>
 
   <section>
-    <h3>Blog Posts</h3>
+    <h3>Recent Posts</h3>
     <ul class="blog-post-list">
-      {{ range $post := first 5 .Site.RegularPages.ByDate.Reverse }}
+      {{ range $post := first 5 (where (.Site.RegularPages.ByDate.Reverse) "Section" "posts") }}
         {{ .Render "summary" }}
       {{ end }}
       <li class="blog-post-preview">
-        <a href="/posts">See the full list &#8594;</a>
+        <a href="/posts/">See the full list &#8594;</a>
+        <span><time datetime="0"></time></span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Recent Pens</h3>
+    <ul class="pens-preview-list">
+      {{ range $post := first 3 (where (.Site.RegularPages.ByDate.Reverse) "Section" "pens") }}
+        {{ .Render "summary" }}
+      {{ end }}
+      <li>
+        <a href="/pens/">See the full list &#8594;</a>
         <span><time datetime="0"></time></span>
       </li>
     </ul>

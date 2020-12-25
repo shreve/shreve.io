@@ -1,0 +1,81 @@
+#!/usr/bin/env ruby
+
+require 'selenium-webdriver'
+
+def snapshot_preview(driver, page)
+  puts "Fetching page http://localhost:3131/#{page}/"
+  driver.navigate.to "http://localhost:3131/#{page}/"
+
+  iframe = driver.find_element id: "pen-preview"
+  puts "Found element"
+
+  driver.execute_script("arguments[0].scrollIntoView()", iframe)
+
+  Selenium::WebDriver::Wait.new(timeout: 1).until { } rescue nil
+
+  w = iframe.size.width.floor
+  h = iframe.size.height.floor
+  x = iframe.location.x.ceil
+  y = iframe.location.y.ceil - driver.execute_script("return window.scrollY").floor
+
+  puts [w, h, x, y].inspect
+
+  puts "Saving screenshot"
+  driver.save_screenshot('preview.png')
+
+  puts "Cropping screenshot"
+  `ffmpeg -y -i preview.png -vf "crop=#{w}:#{h}:#{x}:#{y}" content/#{page}/preview.png`
+
+  puts "Done"
+end
+
+begin
+  puts "Starting hugo server"
+  server = IO.popen("hugo serve --environment production --port 3131")
+
+  puts "Booting webdriver"
+  options = Selenium::WebDriver::Firefox::Options.new
+  options.add_argument('--headless')
+  driver = Selenium::WebDriver.for :firefox, options: options
+
+  snapshot_preview(driver, 'pens/sliding-borders')
+
+ensure
+  puts "Killing hugo server. Bye bye."
+  Process.kill("INT", server.pid)
+  server.close
+end
+
+    # driver.get("http://www.google.com");
+
+    # WebElement ele = driver.findElement(By.id("hplogo"));
+
+    # // Get entire page screenshot
+
+    # File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+    # BufferedImage  fullImg = ImageIO.read(screenshot);
+
+    # // Get the location of element on the page
+
+    # Point point = ele.getLocation();
+
+    # // Get width and height of the element
+
+    # int eleWidth = ele.getSize().getWidth();
+
+    # int eleHeight = ele.getSize().getHeight();
+
+    # // Crop the entire page screenshot to get only element screenshot
+
+    # BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(),
+
+    #     eleWidth, eleHeight);
+
+    # ImageIO.write(eleScreenshot, "png", screenshot);
+
+    # // Copy the element screenshot to disk
+
+    # File screenshotLocation = new File("C:\\images\\GoogleLogo_screenshot.png");
+
+    # FileUtils.copyFile(screenshot, screenshotLocation);

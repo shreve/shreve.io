@@ -1,0 +1,10 @@
+<li class="pen-preview">
+  <div class="box">
+    <a href="{{ .RelPermalink }}">
+      {{ with .Resources.GetMatch "preview.png" }}
+        <img src="{{ .RelPermalink }}" />
+      {{ end }}
+      <span>{{ .Title }}</span>
+    </a>
+  </div>
+</li>

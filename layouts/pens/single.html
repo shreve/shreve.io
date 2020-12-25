@@ -67,7 +67,7 @@
           }
         })
       </script>
-      <iframe src="{{ $preview.RelPermalink }}" style="height: 40px"></iframe>
+      <iframe id="pen-preview" src="{{ $preview.RelPermalink }}" style="height: 40px"></iframe>
       {{ if not hugo.IsProduction }}
       <script>
         document.querySelector('iframe').src += "?t=1"

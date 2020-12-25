@@ -6,18 +6,18 @@
   <article class="content">
     {{ .Content }}
 
-    <ul>
+    <ul class="{{ .Section }}-preview-list">
       {{ range .Pages }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
+        {{ .Render "summary" }}
       {{ end }}
     </ul>
 
+    <p class="center">
     {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<a rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
       Subscribe via RSS
     </a>
+    </p>
     {{ end -}}
   </article>
 {{ end }}
