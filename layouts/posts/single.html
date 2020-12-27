@@ -36,6 +36,30 @@
         <time>About a {{ .ReadingTime }} minute read</time>
       </li>
     </ul>
+
+    {{ if .Params.series -}}
+    <ul class="level content">
+      <li class="level-item">
+        <span>This is part of the <a href="{{ ref . .Params.series }}">{{ .Params.series }}</a> series.
+        {{ $other := where (.Site.Pages.ByDate) "Params.series" .Params.series }}
+        {{ if gt (len $other) 0 }}
+        <select id="series-selector">
+          {{- range $i, $page := $other -}}
+          <option value="{{ $page.Permalink }}" {{ if eq $page $ -}} selected {{ end }}>{{ add $i 1 }}. {{ .Title }}</option>
+          {{- end -}}
+        </select>
+        {{- end -}}
+
+        <script>
+          document.getElementById("series-selector").addEventListener("change", (e) => {
+            let target = e.target.value;
+            window.visit(target);
+          })
+        </script>
+        </span>
+      </li>
+    </ul>
+    {{- end }}
   </header>
 
   <article class="content" itemprop="articleBody text">

@@ -29,11 +29,12 @@ let initPageLinks = () => {
 
   let ajaxCallback = (event) => {
     event.preventDefault();
-    let target = new URL(event.target.href || event.target.parentNode.href)
-    safeVisit(target)
+    let target = event.target.href || event.target.parentNode.href;
+    safeVisit(target);
   }
 
   let safeVisit = (url) => {
+    url = new URL(url);
     if (!pageCache.hasOwnProperty(url.pathname)) {
       save(url.pathname);
     } else {
@@ -126,6 +127,8 @@ let initPageLinks = () => {
     safeVisit(window.location);
     history = true;
   }
+
+  window.visit = safeVisit;
 }
 
 export { initPageLinks };

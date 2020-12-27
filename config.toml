@@ -11,6 +11,7 @@ unsafe = true
 
 [Taxonomies]
 tags = "tags"
+series = "series"
 
 [outputFormats]
 [outputFormats.RSS]
