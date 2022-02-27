@@ -159,6 +159,11 @@ code
   border-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)) 1
   white-space: nowrap
 
+// https://css-tricks.com/to-or-not-to-displaying-terminal-code-snippets/
+code.language-shell::before
+  content: "$ "
+  color: var(--gradient-end)
+
 pre
   @extend %code-wrapper
   overflow-x: auto
