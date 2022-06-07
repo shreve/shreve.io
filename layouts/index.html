@@ -48,7 +48,7 @@ MzBUMTA6MTA6MDMtMDQ6MDBh0Sj/AAAAAElFTkSuQmCC"/>
       {{ range $post := first 5 (where (.Site.RegularPages.ByDate.Reverse) "Section" "posts") }}
         {{ .Render "summary" }}
       {{ end }}
-      <li class="blog-post-preview">
+      <li class="blog-post preview">
         <a href="/posts/">See the full list &#8594;</a>
         <span><time datetime="0"></time></span>
       </li>
