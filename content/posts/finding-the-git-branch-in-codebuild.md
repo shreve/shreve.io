@@ -57,9 +57,8 @@ information about available refs. They had to pull something, right?
 If you look, you'll see `refs/heads/` with at least one head pointing to a ref.
 It stands to reason that one of these will be the current commit. Of course we
 also have that hash inside the `HEAD` file. Using this info, we can find the
-branch name we're looking for with the following bash script:
+branch name we're looking for with the following bash script: <a name="the-code"></a>
 
-<a name="the-code"></a>
 ```bash
 branch_name() {
   # Get the name the standard way

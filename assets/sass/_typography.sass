@@ -6,7 +6,6 @@ $breakpoint: 50em
 
 html
   font-size: 18px
-  font-size: calc(18px + 0.25vh)
 
 body
   --font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
@@ -18,9 +17,15 @@ body
   color: var(--subtext-color)
   font-style: italic
 
-a, a:visited
+a
   color: var(--link-color)
   text-decoration: none
+
+// a:visited
+//   color: var(--link-visited-color)
+
+a:hover
+  text-decoration: underline
 
 h1, h2, h3, h4, h5, h6
   font-weight: bold
@@ -28,6 +33,9 @@ h1, h2, h3, h4, h5, h6
   margin-bottom: 0.5em
   color: var(--text-color)
   line-height: 1
+  display: inline-block
+  width: 100%
+  text-transform: uppercase
 
 h1, h2
   text-align: center
@@ -111,24 +119,14 @@ cite::before
   padding: 0
 
   li
-    margin-bottom: none
     display: inline
     margin: 0
 
-    &::after
-      content: ', '
-
-    &:last-child::after
-      content: ''
-
-a.tag::before
-  content: '#'
-  display: inline
-  color: var(--subtext-color)
-
-.flex-text.flexing
-  white-space: nowrap
-  display: inline-block
+.tag
+  background: var(--subtext-color)
+  color: black
+  border-radius: 4px
+  padding: 0.1em 0.3em
 
 .centered
   text-align: center
@@ -158,6 +156,7 @@ code
   border: 1px solid
   border-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)) 1
   white-space: nowrap
+  color: white
 
 // https://css-tricks.com/to-or-not-to-displaying-terminal-code-snippets/
 code.language-shell::before
@@ -207,11 +206,13 @@ table
 // Pretty Ampersand
 .amp
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif
-  font-size: 2em
-  vertical-align: middle
-  padding: 0 0.2em
+  font-size: 0.75em
+  vertical-align: baseline
+  padding: 0 0.5em
   font-style: italic
   font-weight: normal
+  position: relative
+  bottom: 0.1em
 
 // Beating Heart
 .heart
@@ -224,6 +225,20 @@ table
   top: 0.1em
   font-style: normal
   content: ''
+
+.homepage
+  h1
+    font-size: 12vw
+    font-size: calc(min(12vw, 105px))
+    letter-spacing: -5px
+    margin-bottom: 0
+    white-space: nowrap
+
+  h2
+    font-size: 4vw
+    font-size: calc(min(4vw, 40px))
+    letter-spacing: -2px
+    line-height: 0.75
 
 // Keyframes
 @keyframes heartbeat

@@ -1,7 +1,9 @@
+@use "sass:color"
+
 // Transition things like background to make it easier on the eyes when
 // switching themes.
-body.transitions
-  *
+.transitions
+  *, *::before, *::after
     transition: all 0.5s
 
 \:root
@@ -13,21 +15,22 @@ body.transitions
   --lm-border-color: var(--lm-text-color)
   --lm-button-color: #FFF
   --lm-button-background: darken(#35c0ff, 20%)
-  --lm-bg-gradient-start: #00ffff
-  --lm-bg-gradient-end: #ff00ff
+  --lm-gradient-start: #00ffff
+  --lm-gradient-end: #ff00ff
 
-  --dm-body-background: #090909
-  --dm-embed-background: lighten(#090909, 3%)
+  --dm-body-background: #090009
+  --dm-embed-background: color.lighten(#090909, 3%)
   --dm-text-color: #DDD
   --dm-subtext-color: #AAA
-  --dm-link-color: #35C0FF
+  --dm-link-color: #9267C6
+  --dm-link-visited-color: color.lighten(#9267c6, 20%)
   --dm-border-color: #304251
   --dm-button-color: #FFF
-  --dm-button-background: darken(#35c0ff, 20%)
-  --dm-gradient-start: #62ebfe
-  --dm-gradient-end: #fe84fd
+  --dm-button-background: color.darken(#35c0ff, 20%)
+  --dm-gradient-start: #c9f
+  --dm-gradient-end: #462a67
 
-$theme-props: body-background, embed-background, text-color, subtext-color, link-color, border-color, button-color, button-background, gradient-start, gradient-end
+$theme-props: ( body-background, embed-background, text-color, subtext-color, link-color, link-visited-color, border-color, button-color, button-background, gradient-start, gradient-end)
 
 @mixin select-theme($theme)
   @each $prop in $theme-props
@@ -53,7 +56,7 @@ body
 
 // base16-bright
 @mixin dark-code-theme
-  --base00: #181818
+  --base00: #111111
   --base01: #282828
   --base02: #383838
   --base03: #585858

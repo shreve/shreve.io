@@ -1,8 +1,8 @@
 ---
-title: Software Engineer & Perpetual Student
+title: "Software & Socialism"
 description: >
-  Hey there! My name's Jacob. I live in Ypsilanti, MI, and I work for the
-  School of Information at the University of Michigan.
+  Hey there! My name's Violet and I write software.
 cascade:
-  image: /img/1-800-jake-wins.png
+  image: /img/violet.png
+
 ---

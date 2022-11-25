@@ -2,12 +2,13 @@
   $size: 800px
   $border-width: 3px
   $colors: (#62ebfe, #fe84fd, #84ffc8)
+  $colors: (#462a67, #a865f8, #c9f)
 
   position: relative
 
   &::before
     content: ''
-    background: repeating-linear-gradient(45deg, $colors, $colors, #62ebfe)
+    background: repeating-linear-gradient(45deg, $colors, $colors, nth($colors, 1))
     background-repeat: none
     position: absolute
     animation: sliding-background-anim 5s linear infinite
