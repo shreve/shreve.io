@@ -25,6 +25,14 @@ things 😁</p>
   <br><span class="tag">Scent: Kitchen Lemon</span> but I also like most fruity
   scents.
 
+* A bath pillow
+  <br>I've been taking a lot more baths, and I would love a waterproof pillow to
+  keep my head comfy.
+
+* Fuzzy socks
+  <br><span class="tag">Size: 12</span> I have found this challenging because
+  I wear a women's size 12 and most fuzzy socks I've seen only go up to size 10.
+
 * Scrub Daddies
   <br>I have decided that these sponges are the new best way to do the dishes by
   hand.
