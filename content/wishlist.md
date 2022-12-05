@@ -33,6 +33,11 @@ things 😁</p>
   <br><span class="tag">Size: 12</span> I have found this challenging because
   I wear a women's size 12 and most fuzzy socks I've seen only go up to size 10.
 
+* A light therapy lamp
+  <br><span class="tag">Lux: 10K or greater</span> These early nights have
+  really been taking a toll on me already. A therapy lamp should help to keep me
+  sane through the rest of the winter.
+
 * Scrub Daddies
   <br>I have decided that these sponges are the new best way to do the dishes by
   hand.
@@ -46,9 +51,29 @@ things 😁</p>
   and jewelry: earrings, necklaces, nail polish bottles, tubes, pens, etc.
   "There's got to be a better way!"
 
-* A leather messenger bag
-  <br><span class="tag">Color: Brown</span> I know Coach is overly expensive,
-  and this particular model is hard to find, but the `A7E-9927` is my
-  reference model.
-  <img width="200"
-  src="https://di2ponv0v5otw.cloudfront.net/posts/2020/02/04/5e3a072be974fbfe6fc871c3/m_5e3a073d1528121b6d3f51c6.jpg"/>
+* A leather cross-body bag
+  <br><span class="tag">Color: Cognac</span> Honestly, I'm not sure exactly
+  what I want beyond a bag larger than a clutch, but smaller than
+  a backpack. Here are a few bags that I like and could serve as inspiration,
+  sort of like a mini Pinterest board:
+
+  - [Coach Willis Bag](https://www.coach.com/products/vintage-classic-willis-bag/CL627.html)
+  - [LightningDesign Crossbody Bag](https://www.etsy.com/listing/1044227449/personalized-leather-mini-crossbody-bag)
+  - [Hide N Craft Crossbody Purse](https://smile.amazon.com/dp/B07BHD25D4)
+
+
+## For Joel
+
+* [13" Multipet Duckworth](https://www.multipet.com/product/duckworth/)
+  <br>This toy is seriously Joel's favorite. A yellow one was the first toy he
+  ever bonded with, and he's gone through at least a dozen of them in his
+  life. They're available at most stores that sell dog toys: Walmart, Menards,
+  Chewy, Amazon, even Bed Bath & Beyond.
+
+* [Zuke's Mini Natural Treats](https://www.zukes.com/dog-treats-and-chews/training/mini-naturals-chicken-recipe)
+  <br>We go through these treats like crazy. Joel likes any flavor, but I'd
+  prefer to not get the salmon ones -- they're incredibly fishy.
+
+* [Greenies Dental Chews](https://www.greenies.com/)
+  <br><span class="tag">Size: Regular</span> Joel eats a lot of these, too. They
+  help with the gnarly breath, and he likes chewing on them.
