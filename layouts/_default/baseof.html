@@ -48,7 +48,7 @@
       {{ if ne .RelPermalink "/" -}}
         {{ with resources.Get "img/violet.png" }}
           {{ $tiny := .Resize "50x" }}
-          {{ $preview := .Resize "10x" }}
+          {{ $preview := .Resize "5x" }}
           <a class="logo" href="/">
             <img
               class="img-to-load"
