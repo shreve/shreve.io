@@ -7,7 +7,6 @@ tags:
 - privacy
 - obfuscation
 date: 2020-08-06
-tweet: https://twitter.com/_shreve/status/1291514246262591490
 hn: https://news.ycombinator.com/item?id=24205348
 ---
 

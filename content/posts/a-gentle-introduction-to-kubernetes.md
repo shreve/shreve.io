@@ -195,7 +195,3 @@ Service
 
 Workload
 : Refers to pods or controllers, which create pods.
-
-
-For comments, questions, or corrections, shout as loudly as you'd like at me on
-twitter at [@_shreve](https://twitter.com/_shreve).
