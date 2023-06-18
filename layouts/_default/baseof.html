@@ -96,8 +96,8 @@ mF4A5GX6bOBmAYUAAAAASUVORK5CYII="
       </footer>
     </section>
 
-    {{ $options := (dict "targetPath" "app.js") }}
-    {{ $js := resources.Get "js/app.js" | js.Build $options }}
-    <script type="module" src="{{ $js.RelPermalink }}"></script>
+    {{ $options := (dict "targetPath" "app.js" "minify" true) }}
+    {{ $script := resources.Get "js/app.js" | js.Build $options }}
+    <script type="module" src="{{ $script.RelPermalink }}"></script>
   </body>
 </html>
