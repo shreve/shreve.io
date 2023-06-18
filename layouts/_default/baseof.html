@@ -8,7 +8,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@violetcodes" />
-    <meta name="twitter:url" content="{{ .RelPermalink }}" />
+    <meta name="twitter:url" content="{{ .Permalink }}" />
     <meta name="twitter:title" content="{{ .Title }} :: Shreve Labs" />
     <meta name="twitter:description" content="{{ .Description }}" />
     <meta name="twitter:image" content="{{ .Params.image }}" />
@@ -17,7 +17,7 @@
 
     <!-- Facebook -->
     <meta name="og:site_name" content="shreve.io" />
-    <meta name="og:url" content="{{ .RelPermalink }}" />
+    <meta name="og:url" content="{{ .Permalink }}" />
     <meta name="og:title" content="{{ .Title }}" />
     <meta name="og:description" content="{{ .Description }}" />
     <meta name="og:image" content="{{ .Params.image }}" />
@@ -40,34 +40,25 @@
     {{ $style := $file | resources.ToCSS $options }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 
-    <link rel="canonical" href="{{ .RelPermalink }}" />
+    <link rel="canonical" href="{{ .Permalink }}" />
     <link rel="alternate" type="application/rss+xml" href="/posts/feed.xml" />
   </head>
   <body>
     <nav>
       {{ if ne .RelPermalink "/" -}}
-        <a class="logo" href="/">
-          <img
-            data-src="/img/violet-small.png"
-            alt="VS"
-            class="img-to-load"
-            src="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC6klEQVR4AWLAAphkbZz9JK0cV0tZ2l2T
-Mrf+JmFs9kXGzHK3krmVHwM+oO9oxiJhZF4ube3yzjg66b9+WOR/TV+//+revv8VXdz/y1rZvVK2sYtB
-sQ2ZAyCTnAHttwIw/jvJOTnJNXLzrv+2jam2bXvfau3dx+5b7U6vW7HUfLYvk5zUnr7t81qob/MKxafT
-rigWe7Ps1jE7tGC7Mhwop2nkdAXLemnv+Rdd9j+Cw1deedgu1F80bt7L+BXq5Qqnt2zj8gMHuPHUSa7a
-t4/r9+/haKNaxlL3Hbr8QvkvgtL2vWcL23Y0076PVhbKEmhbktEOnvoVFY1CgUt3beVIwy989tPcvwny
-9UapUMyjbEFkDJ1BH8vEdNfX+em775n4aYzYxKQ8l6YVRUx8a/5JIJSU22NLEtsOMhqyr1YjrRUmCknn
-soRhiFSKiARtiWUvHEYANsAFD97pVv3qw/ml5a2sL7A943By8yYcEsxwCG6a1dlZstLGFrDa6Xzwzkef
-vP6XAzuTS7dkElzXKHLrzjbnH9iP52i0UjTrTbbXRjhx9BCe65KVikNbNu96+cUnUn8ReCYWs4klTSmg
-WiqTT2eQjsbRHl4qS1BtUixXEZEgQVL0g4PtSqX5F8HKj2Mshoa3Jhb4NrZY7w9IACEkYGHCiFhYlLZs
-IVPyEQkmnS4YAAngFQpRktAfnZjjw+kxzq2lObu5RTlbQGlNlBhmfhhDWQowtHZu+SKVLUz9RWBShSAW
-InAyaURzM3MFyQ+/lqZT2CmPYuCzw00zmF9l0O2QDUZe3XHuBd2/CaRuD5AVJ5dD/5q/WjRr36zObWys
-V4dJQoxgpN0krtYwcbhmO3L0X1dOtLcs3VRXKUWxGjCIzNKam3usv7L8/OxPP3419v13ptvpUCiXyOby
-kXZ0n5+HDMyzirlCpsybHzJnxbOo+av2hE+cGc8gJQd23bzcTJVF5SXlu6ZPPfD4+Imf765c3fju+g1+
-mF4A5GX6bOBmAYUAAAAASUVORK5CYII="
-          />
-        </a>
+        {{ with resources.Get "img/violet.png" }}
+          {{ $tiny := .Resize "50x" }}
+          {{ $preview := .Resize "10x" }}
+          <a class="logo" href="/">
+            <img
+              class="img-to-load"
+              height="{{ $tiny.Height }}"
+              width="{{ $tiny.Width }}"
+              data-src="{{ $tiny.RelPermalink }}"
+              src="{{ $preview.Content | base64Encode | printf "data:image/png;base64,%s"  | safeURL }}"
+              />
+          </a>
+        {{ end }}
       {{- end }}
     </nav>
     <section class="wrapper">

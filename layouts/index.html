@@ -6,24 +6,18 @@
       <span class="amp">&</span>
       Socialism
     </h2>
-    <img
-      class="hero-image img-to-load"
-      alt="Violet's Face"
-      data-src="/img/violet.png"
-      src="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAAAwAAAAQCAYAAAAiYZ4HAAACbklEQVR4AT2Ss6JsVxiAv4XtsWdi27ZZ
-pQ+b4AWSN4i6W6e96WLbtm3j+Iw2FuIs/rYYn3As/61Ct86ohLjGufIY6d2uwlQulOqtGLHDkt8HoP8X
-9uFlxnNrb4/JxPqKajnDWo8pyjMX8/zgTGSNq1r6dlXfdYKTwVmy1rwtCsR4T7XkwEQx9I6RMOxWS9HC
-ZlPjT/vCBJ/owW67jX8sw5uWRg97dRjVJacMd6EeaKI/r7WGta0tnvtppffB6uw6LXfb+/BQpIflm1O0
-XSNQglBL6lGA0gqMoNZqcUmaEga/dHQ8GPe7yLBaLHALz7wskNaSz2asb6wjgeFoRC2N2VdXU5kG0T4Q
-B46YuCw5pDekncS4qiTNalRFgdYK4/+UEGzpHuW+w3lJv9pkWE84fDgi/ZPpA43XEebXnzHr66g0Rinx
-ux4pu/u5g4xlMsbVIppBgMoXtEYTVBiweyNhsbZFrEOO3Wevg/SvXvu1eoe944ildEgE2kMSZTS7XaZR
-wnJlCiKi3W2fpDcLw70rM04KDbuGjl6gEVLz54OtDAZJc4+9EK5CeWE0iuL1tQ1e/OorLuwoLt5rV0aN
-NjqMsMKz8u1PfwoqlPR0D9rzbV0g9nFpRDnZhe9bMV+u/E4zSJCjmOao92eoNapftzDFwiSD4Z16RriH
-zTJCIuy4w9rX89XZbNopnJMVgj9nCzce42y15SPxmlRRupFo+be1XPjFj2njers9veH377776IevvraL
-6ZxWu02z3igSFc3V7mdf3EsbzUldis/rJt/x6vPP7Hzqk/eePzNNH843Nr+v8iLN6o2BVuHjUgY7/wC4
-3wEmkWsSsgAAAABJRU5ErkJggg=="
-    />
+
+    {{ with resources.Get "img/violet.png" }}
+      {{ $preview := .Resize "x10" }}
+
+      <img
+        class="hero-image img-to-load"
+        alt="Violet's Face"
+        data-src="{{ .RelPermalink }}"
+        src="{{ $preview.Content | base64Encode | printf "data:image/png;base64,%s" | safeURL }}"
+        />
+    {{ end }}
+
   </header>
   <article class="content">
     <p>
@@ -44,19 +38,6 @@ zTJCIuy4w9rX89XZbNopnJMVgj9nCzce42y15SPxmlRRupFo+be1XPjFj2njers9veH377776IevvraL
         </li>
       </ul>
     </section>
-
-    <!--<section>
-      <h3>Recent Pens</h3>
-      <ul class="pens-preview-list">
-        {{ range $post := first 3 (where (.Site.RegularPages.ByDate.Reverse) "Section" "pens") }}
-          {{ .Render "summary" }}
-        {{ end }}
-        <li>
-          <a href="/pens/">See the full list &#8594;</a>
-          <span><time datetime="0"></time></span>
-        </li>
-      </ul>
-    </section>-->
 
     <blockquote>
       <p>
