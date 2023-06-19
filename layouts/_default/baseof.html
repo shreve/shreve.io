@@ -44,7 +44,9 @@
     <link rel="alternate" type="application/rss+xml" href="/posts/feed.xml" />
   </head>
   <body>
-    {{ partialCached "logo.html" . }}
+    {{ if ne .RelPermalink "/" -}}
+      {{ partialCached "logo.html" . }}
+    {{- end }}
     <section class="wrapper">
       <article class="wrapped">
         {{ block "main" . }}{{ end }}
