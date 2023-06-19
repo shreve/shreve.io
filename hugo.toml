@@ -17,3 +17,8 @@ series = "series"
 [outputFormats.RSS]
 mediatype = "application/rss"
 baseName = "feed"
+
+[imaging]
+hint = "picture"
+quality = 100
+resampleFilter = "lanczos"

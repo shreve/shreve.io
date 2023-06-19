@@ -44,23 +44,7 @@
     <link rel="alternate" type="application/rss+xml" href="/posts/feed.xml" />
   </head>
   <body>
-    <nav>
-      {{ if ne .RelPermalink "/" -}}
-        {{ with resources.Get "img/violet.png" }}
-          {{ $tiny := .Resize "50x" }}
-          {{ $preview := .Resize "5x" }}
-          <a class="logo" href="/">
-            <img
-              class="img-to-load"
-              height="{{ $tiny.Height }}"
-              width="{{ $tiny.Width }}"
-              data-src="{{ $tiny.RelPermalink }}"
-              src="{{ $preview.Content | base64Encode | printf "data:image/png;base64,%s"  | safeURL }}"
-              />
-          </a>
-        {{ end }}
-      {{- end }}
-    </nav>
+    {{ partialCached "logo.html" . }}
     <section class="wrapper">
       <article class="wrapped">
         {{ block "main" . }}{{ end }}
