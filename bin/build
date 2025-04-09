@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 hugo version
-hugo --cleanDestinationDir --ignoreCache --minify --verbose
+hugo --cleanDestinationDir --ignoreCache --minify

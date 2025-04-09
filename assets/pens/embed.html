@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Page.Title }} JakePen</title>
     {{ with .sass }}
-      {{ $css := . | resources.ToCSS (dict "targetPath" "pen.css" "outputStyle" "expanded") }}
+      {{ $css := . | css.Sass (dict "targetPath" "pen.css" "outputStyle" "expanded") }}
       <style>{{ $css.Content }}</style>
     {{ end }}
     <style>

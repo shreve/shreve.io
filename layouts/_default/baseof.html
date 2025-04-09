@@ -37,7 +37,7 @@
 
     {{ $file := resources.Get "sass/main.sass" }}
     {{ $options := (dict "targetPath" "app.css" "outputStyle" "compressed" "enableSourceMap" true) }}
-    {{ $style := $file | resources.ToCSS $options }}
+    {{ $style := $file | css.Sass $options }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 
     <link rel="canonical" href="{{ .Permalink }}" />
