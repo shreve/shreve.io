@@ -2,15 +2,15 @@ baseURL = "https://shreve.io"
 languageCode = "en-us"
 enableRobotsTXT = true
 enableGitInfo = true
-disableKinds = ["taxonomies", "categories"]
+# disableKinds = ["taxonomies", "categories"]
 title = "Shreve Labs"
 pygmentsUseClasses = true
 
 [markup.goldmark.renderer]
 unsafe = true
 
-[Taxonomies]
-tags = "tags"
+[taxonomies]
+tag = "tags"
 series = "series"
 
 [outputFormats]
@@ -22,3 +22,21 @@ baseName = "feed"
 hint = "picture"
 quality = 100
 resampleFilter = "lanczos"
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'

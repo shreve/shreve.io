@@ -32,8 +32,8 @@ and you'll find an obfuscated address below:
 myname@example.com
 <!-- If this isn't obfuscated, I probably moved or disabled their protections. -->
 
-In a browser, you wouldn't notice that this doesn't say
-<!--email_off-->myname@example.com<!--/email_off--> but the returned HTML should
+In a browser, you wouldn't notice that this doesn't say <!--
+email_off-->myname&#64;example.com<!--/email_off--> but the returned HTML should
 instead include the following encoded email and a script to decode it.
 
 ```html

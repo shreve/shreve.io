@@ -1,0 +1,11 @@
+{{- if . -}}
+  <ul class="tags" itemprop="keywords">
+    {{- range $tag := . -}}
+      {{- with site.GetPage (printf "/tags/%s" (urlize $tag)) -}}
+      <li>
+        <a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{- end -}}
+    {{- end -}}
+  </ul>
+{{- end -}}

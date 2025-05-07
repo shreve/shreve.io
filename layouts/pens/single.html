@@ -6,11 +6,11 @@
   <meta itemprop="inLanguage" content="en-US" />
   <meta itemprop="wordCount" content="{{ .WordCount }}" />
   <meta itemprop="description" content="{{ .Description }}" />
-  {{ if .Params.image }}
+  {{- if .Params.image }}
   <meta itemprop="image" content="{{ .Params.image }}" />
-  {{ end }}
+  {{ end -}}
 
-  <header class="blog-post__header">
+  <header class="site-header">
     <h1 itemprop="name headline">{{ .Title }}</h1>
 
     <ul class="level content">

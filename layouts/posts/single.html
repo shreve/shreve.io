@@ -10,31 +10,24 @@
   <meta itemprop="image" content="{{ .Params.image }}" />
   {{ end }}
 
-  <header class="blog-post__header">
+  <header class="site-header">
     <h1 itemprop="name headline">{{ .Title }}</h1>
 
     <ul class="level content">
-      <li class="level-item">
-        <span class="timestamps">
-          Published {{ partial "date.html" (dict "date" .Date "prop" "datePublished") }}
-        </span>
-      </li>
-      {{ if .Params.tags -}}
-      <li class="level-item">
-        <ul class="tags" itemprop="keywords">
-          {{- range $tag := .Params.tags -}}
-          {{- with $.Site.GetPage (printf "/tags/%s" (urlize $tag)) -}}
-          <li>
-            <a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <div class="level-left">
+        <li class="level-item">
+          <span class="timestamps">
+            Published {{ partial "date.html" (dict "date" .Date "prop" "datePublished") }}
+          </span>
+        </li>
+      </div>
+      <div class="level-right">
+        {{- if .Params.tags -}}
+          <li class="level-item">
+            {{ partial "tags.html" .Params.tags }}
           </li>
-          {{- end -}}
-          {{- end -}}
-        </ul>
-      </li>
-      {{- end }}
-      <li class="level-item">
-        <time>About a {{ .ReadingTime }} minute read</time>
-      </li>
+        {{- end -}}
+      </div>
     </ul>
 
     {{ if .Params.series -}}
