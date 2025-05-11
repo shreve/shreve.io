@@ -65,11 +65,8 @@
         <h6>Join the discussion</h6>
         <ul>
           <li>I'd love to hear your thoughts.</li>
-          {{ if .Params.tweet }}
-          <li><a href="{{ .Params.tweet }}" target="_blank">Reply on Twitter</a></li>
-          {{ else }}
-          <li><a href="https://twitter.com/violetcodes" target="_blank">Reply on Twitter</a></li>
-          {{ end }}
+          <li><a href="{{ if .Params.skeet }}{{ .Params.skeet }}{{ else }}https://bsky.app/profile/violet.codes{{ end }}"
+              target="_blank">Reply on Bluesky</a></li>
           {{ if .Params.hn }}
           <li><a href="{{ .Params.hn }}">Reply on Hacker News</a></li>
           {{ end }}
