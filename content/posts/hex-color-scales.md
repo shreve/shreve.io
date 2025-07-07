@@ -39,7 +39,7 @@ red:        0 -------- 25 -------- 50 -------- 75 ------ 100
 green:    100 -------- 75 -------- 50 -------- 25 -------- 0
 ```
 
-{{<posts/hex/bar width="40" v="1">}}
+{{<posts/hex/bar width="35" v="1">}}
 
 At 50%, both red and green were dimmed to 127, making for a murkey orange-brown
 color. This didn't look right. Instead, I realized it should be bright yellow
@@ -68,7 +68,7 @@ red:        0 -------- 50 ------- 100 ------- 100 ------ 100
 green:    100 ------- 100 ------- 100 -------- 50 -------- 0
 ```
 
-{{<posts/hex/bar width="40" v="2">}}
+{{<posts/hex/bar width="35" v="2">}}
 
 This is much better. Each stage on the spectrum is quite bright, and a much
 better color for a battery indicator. Now we have our desired colors, we just
