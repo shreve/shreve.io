@@ -11,7 +11,7 @@ work. What he meant was making sure all our individual interests were aligned
 along our work.
 
 Having a job means you're getting paid and that's at least one interest being
-fulfulled, but what else could your work be doing for you? Do you enjoy working
+fulfilled, but what else could your work be doing for you? Do you enjoy working
 on what you're working on? Are you learning from it? Could you be writing open
 source code which could gain you some degree of prestige? Is it helping you get
 where you want to be in life?
